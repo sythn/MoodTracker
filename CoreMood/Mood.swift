@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum Mood: Int, CustomStringConvertible {
+public final enum Mood: Int, CustomStringConvertible {
     case Good = 1
     case Bad = 0
     

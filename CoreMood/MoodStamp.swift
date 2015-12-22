@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class MoodStamp: NSObject, NSCoding {
+public final class MoodStamp: NSObject, NSCoding {
     public var mood: Mood
     public var timestamp: NSDate
     

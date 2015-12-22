@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Day: NSObject, NSCoding {
+public final class Day: NSObject, NSCoding {
     private let moodAdditionIntervalCap: NSTimeInterval = 5 * 60
     
     public var moodStamps: [MoodStamp]
@@ -24,22 +24,6 @@ public class Day: NSObject, NSCoding {
         self.moodStamps.sortInPlace { (first, second) -> Bool in
             return first.timestamp.compare(second.timestamp) == .OrderedAscending
         }
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        guard let stamps = aDecoder.decodeObjectForKey(Keys.MoodStamps) as? [MoodStamp] else {
-            self.moodStamps = []
-            super.init()
-            return nil
-        }
-        self.moodStamps = stamps
-        super.init()
-        
-        self.sortMoods()
-    }
-    
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.moodStamps, forKey: Keys.MoodStamps)
     }
     
     public var lastMoodStamp: MoodStamp? {
@@ -69,6 +53,25 @@ public class Day: NSObject, NSCoding {
             return true
         }
         return false
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        guard let stamps = aDecoder.decodeObjectForKey(Keys.MoodStamps) as? [MoodStamp] else {
+            self.moodStamps = []
+            super.init()
+            return nil
+        }
+        self.moodStamps = stamps
+        super.init()
+        
+        self.sortMoods()
+    }
+}
+
+public extension Day {
+    
+    public func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.moodStamps, forKey: Keys.MoodStamps)
     }
     
     public override func isEqual(object: AnyObject?) -> Bool {
