@@ -38,6 +38,16 @@
                ReferencedContainer = "container:MoodTracker.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6CC651071C0DFDB000CD7FCC"
+               BuildableName = "CoreMoodTests.xctest"
+               BlueprintName = "CoreMoodTests"
+               ReferencedContainer = "container:MoodTracker.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
