@@ -10,6 +10,9 @@
 		6C263E721C28619000389124 /* MoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263E711C28619000389124 /* MoodTests.swift */; };
 		6C263E741C28625800389124 /* MoodStampTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263E731C28625800389124 /* MoodStampTests.swift */; };
 		6C263E761C29253700389124 /* DayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263E751C29253700389124 /* DayTests.swift */; };
+		6C263E781C2957B400389124 /* MoodValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263E771C2957B400389124 /* MoodValue.swift */; };
+		6C263E7A1C2959FD00389124 /* DayStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263E791C2959FD00389124 /* DayStatistics.swift */; };
+		6C263E7C1C29606800389124 /* MoodStatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263E7B1C29606800389124 /* MoodStatisticsTests.swift */; };
 		6CC650DB1C0DFD8100CD7FCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC650DA1C0DFD8100CD7FCC /* AppDelegate.swift */; };
 		6CC650DD1C0DFD8100CD7FCC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC650DC1C0DFD8100CD7FCC /* MainViewController.swift */; };
 		6CC650E01C0DFD8100CD7FCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC650DE1C0DFD8100CD7FCC /* Main.storyboard */; };
@@ -75,6 +78,9 @@
 		6C263E711C28619000389124 /* MoodTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodTests.swift; sourceTree = "<group>"; };
 		6C263E731C28625800389124 /* MoodStampTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodStampTests.swift; sourceTree = "<group>"; };
 		6C263E751C29253700389124 /* DayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTests.swift; sourceTree = "<group>"; };
+		6C263E771C2957B400389124 /* MoodValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodValue.swift; sourceTree = "<group>"; };
+		6C263E791C2959FD00389124 /* DayStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayStatistics.swift; sourceTree = "<group>"; };
+		6C263E7B1C29606800389124 /* MoodStatisticsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodStatisticsTests.swift; sourceTree = "<group>"; };
 		6CC650D71C0DFD8100CD7FCC /* MoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC650DA1C0DFD8100CD7FCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CC650DC1C0DFD8100CD7FCC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +188,8 @@
 				6CC6511D1C0DFDB800CD7FCC /* Mood.swift */,
 				6CC651211C0DFE9200CD7FCC /* MoodStamp.swift */,
 				6CC6511F1C0DFE4C00CD7FCC /* Day.swift */,
+				6C263E771C2957B400389124 /* MoodValue.swift */,
+				6C263E791C2959FD00389124 /* DayStatistics.swift */,
 			);
 			path = CoreMood;
 			sourceTree = "<group>";
@@ -193,6 +201,7 @@
 				6C263E711C28619000389124 /* MoodTests.swift */,
 				6C263E731C28625800389124 /* MoodStampTests.swift */,
 				6C263E751C29253700389124 /* DayTests.swift */,
+				6C263E7B1C29606800389124 /* MoodStatisticsTests.swift */,
 				6CC651111C0DFDB000CD7FCC /* Info.plist */,
 			);
 			path = CoreMoodTests;
@@ -389,7 +398,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C263E781C2957B400389124 /* MoodValue.swift in Sources */,
 				6CC651201C0DFE4C00CD7FCC /* Day.swift in Sources */,
+				6C263E7A1C2959FD00389124 /* DayStatistics.swift in Sources */,
 				6CC651221C0DFE9200CD7FCC /* MoodStamp.swift in Sources */,
 				6CC6511E1C0DFDB800CD7FCC /* Mood.swift in Sources */,
 			);
@@ -401,6 +412,7 @@
 			files = (
 				6C263E721C28619000389124 /* MoodTests.swift in Sources */,
 				6C263E741C28625800389124 /* MoodStampTests.swift in Sources */,
+				6C263E7C1C29606800389124 /* MoodStatisticsTests.swift in Sources */,
 				6C263E761C29253700389124 /* DayTests.swift in Sources */,
 				6CC651101C0DFDB000CD7FCC /* CoreMoodTests.swift in Sources */,
 			);
