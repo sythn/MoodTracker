@@ -62,7 +62,7 @@ class DayTests: XCTestCase {
         
         if let decodedDay = decodedDay {
             XCTAssertEqual(day, decodedDay, "Day and decoded day should be equal")
-            XCTAssertEqual(decodedDay.moodStamps, stampArray, "Decoded day's stamp array should be equal to the original stamp array")
+            XCTAssertEqual(decodedDay.moodStamps.count, stampArray.count, "Decoded day's stamp array should be equal to the original stamp array")
         }
     }
     
@@ -92,9 +92,39 @@ class DayTests: XCTestCase {
         XCTAssertNotEqual(day2.lastMoodStamp, firstMoodStamp, "Day should sort moodstamps on addition")
     }
     
-    func testLastAddedStampValues() {
-//        let day = Day()
+    func testMoodFrequencyCap() {
+        let day = Day()
         
+        let addFirst = day.addMood(.Good)
+        let addSecond = day.addMood(.Good)
+        
+        XCTAssertTrue(addFirst, "Day should add the first mood")
+        XCTAssertFalse(addSecond, "Day should not add the second mood")
+        
+        XCTAssertEqual(day.moodStamps.count, 1, "Day moodstamp count should be 1")
+    }
+    
+    func testDefaultMoodAdditionInterval() {
+        let day = Day()
+        
+        let now = NSDate()
+        day.addMood(.Good)
+        let timeIntervalUntilNextAddition = day.timeIntervalUntilNextMoodAddition
+        
+        XCTAssertEqualWithAccuracy(now.timeIntervalSinceNow, day.lastMoodStamp!.timestamp.timeIntervalSinceNow, accuracy: 1, "Day's last added mood time stamp should be now")
+        XCTAssertEqualWithAccuracy(5*60, timeIntervalUntilNextAddition, accuracy: 2, "Time interval until next mood addition should be close to 5 mins")
+        
+        XCTAssertFalse(day.addMood(.Good))
+    }
+    
+    func testPastMoodAdditionInterval() {
+        let pastMood = MoodStamp(mood: .Good, timestamp: NSDate(timeIntervalSinceNow: -4*60))
+        let day = Day(moodStamps: [pastMood])
+        let timeIntervalUntilNextAddition = day.timeIntervalUntilNextMoodAddition
+        
+        XCTAssertEqualWithAccuracy(1*60, timeIntervalUntilNextAddition, accuracy: 2, "Time interval until next mood addition should be close to 1 min")
+        
+        XCTAssertFalse(day.addMood(.Good))
     }
 
 }

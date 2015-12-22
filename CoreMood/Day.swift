@@ -60,12 +60,15 @@ public class Day: NSObject, NSCoding {
         return self.timeIntervalUntilNextMoodAddition == 0
     }
     
-    public func addMood(mood: Mood) {
+    public func addMood(mood: Mood) -> Bool {
         if canAddMood {
             let stamp = MoodStamp(mood: mood, timestamp: NSDate())
             moodStamps.append(stamp)
             self.sortMoods()
+            
+            return true
         }
+        return false
     }
     
     public override func isEqual(object: AnyObject?) -> Bool {
