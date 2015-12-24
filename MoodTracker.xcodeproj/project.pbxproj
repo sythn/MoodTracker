@@ -13,6 +13,13 @@
 		6C263E781C2957B400389124 /* MoodValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263E771C2957B400389124 /* MoodValue.swift */; };
 		6C263E7A1C2959FD00389124 /* DayStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263E791C2959FD00389124 /* DayStatistics.swift */; };
 		6C263E7C1C29606800389124 /* MoodStatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263E7B1C29606800389124 /* MoodStatisticsTests.swift */; };
+		6C263E981C298ABD00389124 /* Charts.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C263E971C298ABD00389124 /* Charts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C263E9C1C298ABD00389124 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C263E951C298ABD00389124 /* Charts.framework */; };
+		6C263E9D1C298ABD00389124 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C263E951C298ABD00389124 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C263EA21C298AD100389124 /* TimeScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263EA11C298AD100389124 /* TimeScaleView.swift */; };
+		6C263EA41C298F3400389124 /* TimeScaleDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263EA31C298F3400389124 /* TimeScaleDataPoint.swift */; };
+		6C263EA61C2A90D800389124 /* GeometryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263EA51C2A90D800389124 /* GeometryExtensions.swift */; };
+		6C263EA81C2C1DF400389124 /* InterfaceBuilderSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263EA71C2C1DF400389124 /* InterfaceBuilderSamples.swift */; };
 		6CC650DB1C0DFD8100CD7FCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC650DA1C0DFD8100CD7FCC /* AppDelegate.swift */; };
 		6CC650DD1C0DFD8100CD7FCC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC650DC1C0DFD8100CD7FCC /* MainViewController.swift */; };
 		6CC650E01C0DFD8100CD7FCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC650DE1C0DFD8100CD7FCC /* Main.storyboard */; };
@@ -30,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6C263E9A1C298ABD00389124 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CC650CF1C0DFD8000CD7FCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C263E941C298ABD00389124;
+			remoteInfo = Charts;
+		};
 		6CC650EC1C0DFD8100CD7FCC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6CC650CF1C0DFD8000CD7FCC /* Project object */;
@@ -68,6 +82,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6CC651151C0DFDB000CD7FCC /* CoreMood.framework in Embed Frameworks */,
+				6C263E9D1C298ABD00389124 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,6 +96,13 @@
 		6C263E771C2957B400389124 /* MoodValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodValue.swift; sourceTree = "<group>"; };
 		6C263E791C2959FD00389124 /* DayStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayStatistics.swift; sourceTree = "<group>"; };
 		6C263E7B1C29606800389124 /* MoodStatisticsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodStatisticsTests.swift; sourceTree = "<group>"; };
+		6C263E951C298ABD00389124 /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C263E971C298ABD00389124 /* Charts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Charts.h; sourceTree = "<group>"; };
+		6C263E991C298ABD00389124 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C263EA11C298AD100389124 /* TimeScaleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScaleView.swift; sourceTree = "<group>"; };
+		6C263EA31C298F3400389124 /* TimeScaleDataPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScaleDataPoint.swift; sourceTree = "<group>"; };
+		6C263EA51C2A90D800389124 /* GeometryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeometryExtensions.swift; sourceTree = "<group>"; };
+		6C263EA71C2C1DF400389124 /* InterfaceBuilderSamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceBuilderSamples.swift; sourceTree = "<group>"; };
 		6CC650D71C0DFD8100CD7FCC /* MoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC650DA1C0DFD8100CD7FCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CC650DC1C0DFD8100CD7FCC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -103,11 +125,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6C263E911C298ABD00389124 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CC650D41C0DFD8100CD7FCC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6CC651141C0DFDB000CD7FCC /* CoreMood.framework in Frameworks */,
+				6C263E9C1C298ABD00389124 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +166,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C263E961C298ABD00389124 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				6C263E971C298ABD00389124 /* Charts.h */,
+				6C263E991C298ABD00389124 /* Info.plist */,
+				6C263EA11C298AD100389124 /* TimeScaleView.swift */,
+				6C263EA31C298F3400389124 /* TimeScaleDataPoint.swift */,
+				6C263EA51C2A90D800389124 /* GeometryExtensions.swift */,
+				6C263EA71C2C1DF400389124 /* InterfaceBuilderSamples.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
 		6CC650CE1C0DFD8000CD7FCC = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +186,7 @@
 				6CC650EE1C0DFD8100CD7FCC /* MoodTrackerTests */,
 				6CC651001C0DFDB000CD7FCC /* CoreMood */,
 				6CC6510E1C0DFDB000CD7FCC /* CoreMoodTests */,
+				6C263E961C298ABD00389124 /* Charts */,
 				6CC650D81C0DFD8100CD7FCC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -154,6 +198,7 @@
 				6CC650EB1C0DFD8100CD7FCC /* MoodTrackerTests.xctest */,
 				6CC650FF1C0DFDB000CD7FCC /* CoreMood.framework */,
 				6CC651081C0DFDB000CD7FCC /* CoreMoodTests.xctest */,
+				6C263E951C298ABD00389124 /* Charts.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -210,6 +255,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		6C263E921C298ABD00389124 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C263E981C298ABD00389124 /* Charts.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CC650FC1C0DFDB000CD7FCC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -221,6 +274,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		6C263E941C298ABD00389124 /* Charts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C263EA01C298ABD00389124 /* Build configuration list for PBXNativeTarget "Charts" */;
+			buildPhases = (
+				6C263E901C298ABD00389124 /* Sources */,
+				6C263E911C298ABD00389124 /* Frameworks */,
+				6C263E921C298ABD00389124 /* Headers */,
+				6C263E931C298ABD00389124 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Charts;
+			productName = Charts;
+			productReference = 6C263E951C298ABD00389124 /* Charts.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		6CC650D61C0DFD8100CD7FCC /* MoodTracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6CC650F41C0DFD8100CD7FCC /* Build configuration list for PBXNativeTarget "MoodTracker" */;
@@ -234,6 +305,7 @@
 			);
 			dependencies = (
 				6CC651131C0DFDB000CD7FCC /* PBXTargetDependency */,
+				6C263E9B1C298ABD00389124 /* PBXTargetDependency */,
 			);
 			name = MoodTracker;
 			productName = MoodTracker;
@@ -301,10 +373,13 @@
 		6CC650CF1C0DFD8000CD7FCC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Brokoli;
 				TargetAttributes = {
+					6C263E941C298ABD00389124 = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					6CC650D61C0DFD8100CD7FCC = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
@@ -338,11 +413,19 @@
 				6CC650EA1C0DFD8100CD7FCC /* MoodTrackerTests */,
 				6CC650FE1C0DFDB000CD7FCC /* CoreMood */,
 				6CC651071C0DFDB000CD7FCC /* CoreMoodTests */,
+				6C263E941C298ABD00389124 /* Charts */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6C263E931C298ABD00389124 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CC650D51C0DFD8100CD7FCC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -377,6 +460,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6C263E901C298ABD00389124 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C263EA41C298F3400389124 /* TimeScaleDataPoint.swift in Sources */,
+				6C263EA81C2C1DF400389124 /* InterfaceBuilderSamples.swift in Sources */,
+				6C263EA21C298AD100389124 /* TimeScaleView.swift in Sources */,
+				6C263EA61C2A90D800389124 /* GeometryExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CC650D31C0DFD8100CD7FCC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,6 +515,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6C263E9B1C298ABD00389124 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C263E941C298ABD00389124 /* Charts */;
+			targetProxy = 6C263E9A1C298ABD00389124 /* PBXContainerItemProxy */;
+		};
 		6CC650ED1C0DFD8100CD7FCC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6CC650D61C0DFD8100CD7FCC /* MoodTracker */;
@@ -463,6 +562,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6C263E9E1C298ABD00389124 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Charts/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tr.com.Brokoli.Charts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6C263E9F1C298ABD00389124 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Charts/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tr.com.Brokoli.Charts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		6CC650F21C0DFD8100CD7FCC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -660,6 +802,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6C263EA01C298ABD00389124 /* Build configuration list for PBXNativeTarget "Charts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C263E9E1C298ABD00389124 /* Debug */,
+				6C263E9F1C298ABD00389124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		6CC650D21C0DFD8000CD7FCC /* Build configuration list for PBXProject "MoodTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
