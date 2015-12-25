@@ -214,9 +214,9 @@
 		6CC650D91C0DFD8100CD7FCC /* MoodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				6CE4876D1C2D159F001D9E6D /* ViewModel */,
 				6CC650DA1C0DFD8100CD7FCC /* AppDelegate.swift */,
 				6CC650DC1C0DFD8100CD7FCC /* MainViewController.swift */,
-				6CE4876D1C2D159F001D9E6D /* ViewModel */,
 				6CC650DE1C0DFD8100CD7FCC /* Main.storyboard */,
 				6CC650E11C0DFD8100CD7FCC /* Assets.xcassets */,
 				6CC650E31C0DFD8100CD7FCC /* LaunchScreen.storyboard */,

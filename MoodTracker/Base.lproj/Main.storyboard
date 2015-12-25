@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gA7-qD-oyU" customClass="TimeScaleView" customModule="Charts">
-                                <rect key="frame" x="84" y="84" width="432" height="432"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="gA7-qD-oyU" secondAttribute="height" id="c8c-rn-TcR"/>
-                                </constraints>
+                                <rect key="frame" x="64" y="192" width="472" height="364"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="insideScale">
                                         <real key="value" value="0.41999999999999998"/>
@@ -34,13 +30,44 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGO-Hn-3yy">
+                                <rect key="frame" x="224" y="84" width="64" height="64"/>
+                                <color key="backgroundColor" red="0.0" green="0.87450980389999999" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="3o6-YX-qoq"/>
+                                    <constraint firstAttribute="width" constant="64" id="5Fx-XQ-cEO"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="goodButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="kve-eP-Ahj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28P-El-U6a">
+                                <rect key="frame" x="312" y="84" width="64" height="64"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.06787109375" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="DJg-Xi-914"/>
+                                    <constraint firstAttribute="width" constant="64" id="Tzy-8L-VA8"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="badButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="zpT-cD-Qhc"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gA7-qD-oyU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="64" id="Bab-nD-a6r"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gA7-qD-oyU" secondAttribute="trailing" constant="64" id="Eru-Rq-hGg"/>
-                            <constraint firstItem="gA7-qD-oyU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="PE4-3F-3U3"/>
+                            <constraint firstItem="gA7-qD-oyU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="44" id="Ncf-fn-85t"/>
+                            <constraint firstItem="28P-El-U6a" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="Qmy-2r-WCp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gA7-qD-oyU" secondAttribute="trailing" constant="44" id="UYu-jm-nyF"/>
+                            <constraint firstItem="fGO-Hn-3yy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="Z77-cu-AkO"/>
+                            <constraint firstItem="28P-El-U6a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="44" id="Zrn-vq-EpL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gA7-qD-oyU" secondAttribute="bottom" constant="44" id="a59-ud-Fj0"/>
+                            <constraint firstItem="gA7-qD-oyU" firstAttribute="top" secondItem="28P-El-U6a" secondAttribute="bottom" constant="44" id="eaY-Hg-FKv"/>
+                            <constraint firstItem="fGO-Hn-3yy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-44" id="n33-77-edo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="timeChart" destination="gA7-qD-oyU" id="4rd-RN-xvl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

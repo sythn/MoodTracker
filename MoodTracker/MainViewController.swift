@@ -13,17 +13,29 @@ import Charts
 class MainViewController: UIViewController {
     
     @IBOutlet var timeChart: TimeScaleView!
+    var dataController = DataController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        updateChart()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func goodButtonTapped() {
+        self.dataController.addMood(.Good)
+        updateChart()
+    }
+    
+    @IBAction func badButtonTapped() {
+        self.dataController.addMood(.Bad)
+        updateChart()
+    }
+    
+    func updateChart() {
+        self.timeChart.setDay(dataController.today)
+    }
 }
 

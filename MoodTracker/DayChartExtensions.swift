@@ -28,11 +28,30 @@ extension MoodValue: TimeScaleDataPoint {
         let greenG = 0.759
         let greenB = 0.103
         
-        let percentage = self.percentage
+        let gPercentage = self.percentage
+        let rPercentage = (1 - self.percentage)
         return UIColor(
-            red: CGFloat(redR + percentage * greenR),
-            green: CGFloat(redG + percentage * greenG),
-            blue: CGFloat(redB + percentage * greenB),
+            red: CGFloat(rPercentage * redR + gPercentage * greenR),
+            green: CGFloat(rPercentage * redG + gPercentage * greenG),
+            blue: CGFloat(rPercentage * redB + gPercentage * greenB),
             alpha: 1)
+    }
+}
+
+extension Day {
+    var timeScaleDataPoints: [TimeScaleDataPoint] {
+        let moodPerHours = self.statistics.moodValuePerHours
+        return (0..<24).map { hour in
+            if let value = moodPerHours[hour] {
+                return value
+            }
+            return MoodValue(values: [])
+        }
+    }
+}
+
+extension TimeScaleView {
+    func setDay(day: Day) {
+        self.dataPoints = day.timeScaleDataPoints
     }
 }

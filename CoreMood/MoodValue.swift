@@ -11,6 +11,10 @@ import Foundation
 public struct MoodValue: CustomStringConvertible {
     public var values: [Int]
     
+    public init(values: [Int]) {
+        self.values = values
+    }
+    
     public var scale: Double {
         return Double(values.count) / (60 / 5)
     }
