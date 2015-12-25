@@ -8,6 +8,13 @@
 
 import Foundation
 
+struct SampleTimeScaleDataPoint: TimeScaleDataPoint {
+    var scale: CGFloat
+    var value: CGFloat
+    
+    var color: UIColor
+}
+
 extension TimeScaleView {
     public override func prepareForInterfaceBuilder() {
         let red1 = UIColor(red:0.775, green:0.074, blue:0.054, alpha:1)
@@ -19,30 +26,30 @@ extension TimeScaleView {
         let green2 = UIColor(red:0.2, green:0.775, blue:0.054, alpha:1)
         
         self.dataPoints = [
-            TimeScaleDataPoint(scale: 0, value: 1, color: green1),
-            TimeScaleDataPoint(scale: 0, value: 1, color: UIColor.greenColor()),
-            TimeScaleDataPoint(scale: 0, value: 1, color: UIColor.purpleColor()),
-            TimeScaleDataPoint(scale: 0, value: 1, color: UIColor.yellowColor()),
-            TimeScaleDataPoint(scale: 0, value: 1, color: UIColor.blueColor()),
-            TimeScaleDataPoint(scale: 0, value: 1, color: UIColor.greenColor()),
-            TimeScaleDataPoint(scale: 0, value: 1, color: UIColor.purpleColor()),
-            TimeScaleDataPoint(scale: 1/12, value: 1, color: red1),
-            TimeScaleDataPoint(scale: 3/12, value: 1, color: red1),
-            TimeScaleDataPoint(scale: 5/12, value: 1, color: yellow1),
-            TimeScaleDataPoint(scale: 1/12, value: 1, color: red2),
-            TimeScaleDataPoint(scale: 0, value: 1, color: yellow2),
-            TimeScaleDataPoint(scale: 0, value: 1, color: green1),
-            TimeScaleDataPoint(scale: 3/12, value: 1, color: green1),
-            TimeScaleDataPoint(scale: 1/12, value: 1, color: yellow2),
-            TimeScaleDataPoint(scale: 1/12, value: 1, color: yellow3),
-            TimeScaleDataPoint(scale: 12/12, value: 1, color: red2),
-            TimeScaleDataPoint(scale: 4/12, value: 1, color: yellow2),
-            TimeScaleDataPoint(scale: 0, value: 1, color: green2),
-            TimeScaleDataPoint(scale: 7/12, value: 1, color: green2),
-            TimeScaleDataPoint(scale: 1/12, value: 1, color: green1),
-            TimeScaleDataPoint(scale: 1/12, value: 1, color: green2),
-            TimeScaleDataPoint(scale: 0, value: 1, color: yellow3),
-            TimeScaleDataPoint(scale: 3/12, value: 1, color: yellow2)
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: green1),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.greenColor()),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.purpleColor()),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.yellowColor()),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.blueColor()),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.greenColor()),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.purpleColor()),
+            SampleTimeScaleDataPoint(scale: 1/12, value: 1, color: red1),
+            SampleTimeScaleDataPoint(scale: 3/12, value: 1, color: red1),
+            SampleTimeScaleDataPoint(scale: 5/12, value: 1, color: yellow1),
+            SampleTimeScaleDataPoint(scale: 1/12, value: 1, color: red2),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: yellow2),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: green1),
+            SampleTimeScaleDataPoint(scale: 3/12, value: 1, color: green1),
+            SampleTimeScaleDataPoint(scale: 1/12, value: 1, color: yellow2),
+            SampleTimeScaleDataPoint(scale: 1/12, value: 1, color: yellow3),
+            SampleTimeScaleDataPoint(scale: 12/12, value: 1, color: red2),
+            SampleTimeScaleDataPoint(scale: 4/12, value: 1, color: yellow2),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: green2),
+            SampleTimeScaleDataPoint(scale: 7/12, value: 1, color: green2),
+            SampleTimeScaleDataPoint(scale: 1/12, value: 1, color: green1),
+            SampleTimeScaleDataPoint(scale: 1/12, value: 1, color: green2),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: yellow3),
+            SampleTimeScaleDataPoint(scale: 3/12, value: 1, color: yellow2)
         ]
     }
 }

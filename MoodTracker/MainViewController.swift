@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import CoreMood
+import Charts
 
 class MainViewController: UIViewController {
+    
+    @IBOutlet var timeChart: TimeScaleView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

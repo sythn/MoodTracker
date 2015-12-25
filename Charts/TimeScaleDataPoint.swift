@@ -8,9 +8,9 @@
 
 import UIKit
 
-public struct TimeScaleDataPoint {
-    public var scale: CGFloat
-    public var value: CGFloat
+public protocol TimeScaleDataPoint {
+    var scale: CGFloat { get }
+    var value: CGFloat { get }
     
-    public var color: UIColor
+    var color: UIColor { get }
 }

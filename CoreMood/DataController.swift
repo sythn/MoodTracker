@@ -16,4 +16,18 @@ public class DataController: NSObject {
         
         super.init()
     }
+    
+    public var today: Day {
+        if let today = days[DayDate()] {
+            return today
+        }
+        
+        let today = Day()
+        days[DayDate()] = today
+        return today
+    }
+    
+    public func addMood(mood: Mood) -> Bool {
+        return self.today.addMood(mood)
+    }
 }
