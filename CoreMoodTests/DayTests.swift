@@ -126,5 +126,39 @@ class DayTests: XCTestCase {
         
         XCTAssertFalse(day.addMood(.Good))
     }
+    
+    func testEquality() {
+        let control = DayDate(day: 9, month: 12, year: 1989)
+        
+        let date1 = DayDate(day: 9, month: 12, year: 1989)
+        let date2 = DayDate(day: 29, month: 6, year: 1990)
+        let date3 = DayDate(day: 10, month: 12, year: 1989)
+        let date4 = DayDate(day: 9, month: 11, year: 19889)
+        let date5 = DayDate(day: 9, month: 12, year: 2015)
+        
+        XCTAssertEqual(control, date1)
+        XCTAssertNotEqual(control, date2)
+        XCTAssertNotEqual(control, date3)
+        XCTAssertNotEqual(control, date4)
+        XCTAssertNotEqual(control, date5)
+    }
+    
+    func testDateAndDateComponentsEquality() {
+        let today = NSDate()
+        let todayComponents = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: today)
+        
+        let date1 = DayDate(date: today)
+        let date2 = DayDate(dateComponents: todayComponents)
+        
+        XCTAssertEqual(date1, date2, "Dates from NSDate and NSDateComponents should be equal")
+        
+        let dateBack1 = date1.date
+        let dateBack2 = date2.date
+        
+        XCTAssertNotNil(dateBack1 ?? dateBack2, "Dates from DayDates should not be nil")
+        if let dateBack1 = dateBack1, let dateBack2 = dateBack2 {
+            XCTAssertTrue(NSCalendar.currentCalendar().isDate(dateBack1, inSameDayAsDate: dateBack2), "Dates should be in the same day")
+        }
+    }
 
 }

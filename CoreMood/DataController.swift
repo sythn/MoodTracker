@@ -9,6 +9,11 @@
 import Foundation
 
 public class DataController: NSObject {
-    public var days: [Day] = []
+    public var days: [DayDate: Day]
     
+    public override init() {
+        days = [DayDate: Day]()
+        
+        super.init()
+    }
 }

@@ -18,7 +18,7 @@ protocol DateComponentsConvertible {
     var dateComponents: NSDateComponents { get }
 }
 
-public struct DayDate: DateConvertible, DateComponentsConvertible, CustomStringConvertible {
+public struct DayDate: DateConvertible, DateComponentsConvertible {
     public var day: Int
     public var month: Int
     public var year: Int
@@ -55,8 +55,18 @@ public struct DayDate: DateConvertible, DateComponentsConvertible, CustomStringC
     public var date: NSDate? {
         return NSCalendar.currentCalendar().dateFromComponents(self.dateComponents)
     }
-    
+}
+
+extension DayDate: CustomStringConvertible, Hashable {
     public var description: String {
         return "\(day).\(month).\(year)"
     }
+    
+    public var hashValue: Int {
+        return year * 10000 + month * 100 + day
+    }
+}
+
+public func ==(left: DayDate, right: DayDate) -> Bool {
+    return left.year == right.year && left.month == right.month && left.day == right.day
 }

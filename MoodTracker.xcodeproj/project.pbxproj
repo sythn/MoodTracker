@@ -241,8 +241,8 @@
 				6CC6511F1C0DFE4C00CD7FCC /* Day.swift */,
 				6C263E771C2957B400389124 /* MoodValue.swift */,
 				6C263E791C2959FD00389124 /* DayStatistics.swift */,
-				6C263EAB1C2C213E00389124 /* DataController.swift */,
 				6C263EAD1C2C226C00389124 /* DayDate.swift */,
+				6CE4876C1C2D0D5F001D9E6D /* Controller */,
 			);
 			path = CoreMood;
 			sourceTree = "<group>";
@@ -259,6 +259,14 @@
 				6CC651111C0DFDB000CD7FCC /* Info.plist */,
 			);
 			path = CoreMoodTests;
+			sourceTree = "<group>";
+		};
+		6CE4876C1C2D0D5F001D9E6D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6C263EAB1C2C213E00389124 /* DataController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
