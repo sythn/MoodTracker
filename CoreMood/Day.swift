@@ -12,9 +12,11 @@ public final class Day: NSObject, NSCoding {
     private let moodAdditionIntervalCap: NSTimeInterval = 5 * 60
     
     public var moodStamps: [MoodStamp]
+    public var date: DayDate
     
-    public init(moodStamps: [MoodStamp] = []) {
+    public init(moodStamps: [MoodStamp] = [], date: NSDate = NSDate()) {
         self.moodStamps = moodStamps
+        self.date = DayDate(date: date)
         super.init()
         
         self.sortMoods()
@@ -56,12 +58,16 @@ public final class Day: NSObject, NSCoding {
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        guard let stamps = aDecoder.decodeObjectForKey(Keys.MoodStamps) as? [MoodStamp] else {
-            self.moodStamps = []
-            super.init()
-            return nil
+        guard let stamps = aDecoder.decodeObjectForKey(Keys.MoodStamps) as? [MoodStamp],
+            let dateComponents = aDecoder.decodeObjectForKey(Keys.Date) as? NSDateComponents
+            else {
+                self.moodStamps = []
+                self.date = DayDate()
+                super.init()
+                return nil
         }
         self.moodStamps = stamps
+        self.date = DayDate(dateComponents: dateComponents)
         super.init()
         
         self.sortMoods()
@@ -72,6 +78,7 @@ public extension Day {
     
     public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.moodStamps, forKey: Keys.MoodStamps)
+        aCoder.encodeObject(self.date.dateComponents, forKey: Keys.Date)
     }
     
     public override func isEqual(object: AnyObject?) -> Bool {
@@ -90,5 +97,6 @@ public extension Day {
 private extension Day {
     private struct Keys {
         static let MoodStamps = "MoodStamps"
+        static let Date = "Date"
     }
 }
