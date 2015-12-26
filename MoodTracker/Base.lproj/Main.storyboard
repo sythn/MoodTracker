@@ -25,6 +25,11 @@
                                     <constraint firstAttribute="height" constant="64" id="3o6-YX-qoq"/>
                                     <constraint firstAttribute="width" constant="64" id="5Fx-XQ-cEO"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="32"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="goodButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="kve-eP-Ahj"/>
                                 </connections>
@@ -36,6 +41,11 @@
                                     <constraint firstAttribute="height" constant="64" id="DJg-Xi-914"/>
                                     <constraint firstAttribute="width" constant="64" id="Tzy-8L-VA8"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="32"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="badButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="zpT-cD-Qhc"/>
                                 </connections>
