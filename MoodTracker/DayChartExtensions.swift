@@ -16,25 +16,18 @@ extension MoodValue: TimeScaleDataPoint {
     }
     
     public var scale: CGFloat {
-        return CGFloat(self.scale)
+        return CGFloat(min(self.scale * 2, 1))
     }
     
     public var color: UIColor {
-        let redR = 0.759
-        let redG = 0.0
-        let redB = 0.0
+        let redHue = 0.0
+        let greenHue = 0.3
+        let saturation: CGFloat = 1
+        let brightness: CGFloat = 0.759
         
-        let greenR = 0.0
-        let greenG = 0.759
-        let greenB = 0.103
-        
-        let gPercentage = self.percentage
-        let rPercentage = (1 - self.percentage)
-        return UIColor(
-            red: CGFloat(rPercentage * redR + gPercentage * greenR),
-            green: CGFloat(rPercentage * redG + gPercentage * greenG),
-            blue: CGFloat(rPercentage * redB + gPercentage * greenB),
-            alpha: 1)
+        let greenPercentage = self.percentage
+        let redPercentage = (1 - self.percentage)
+        return UIColor(hue: CGFloat(redHue * redPercentage + greenHue * greenPercentage), saturation: saturation, brightness: brightness, alpha: 1)
     }
 }
 

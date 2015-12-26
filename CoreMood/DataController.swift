@@ -12,7 +12,17 @@ public class DataController: NSObject {
     public var days: [DayDate: Day]
     
     public override init() {
-        days = [DayDate: Day]()
+        let data = NSUserDefaults.standardUserDefaults().objectForKey("SampleDays") as? NSData
+        if let data = data where data.length > 0,
+            let days = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Day] {
+                var dayDict = [DayDate: Day]()
+                for day in days {
+                    dayDict[day.date] = day
+                }
+                self.days = dayDict
+        } else {
+            days = [DayDate: Day]()
+        }
         
         super.init()
     }
@@ -28,6 +38,16 @@ public class DataController: NSObject {
     }
     
     public func addMood(mood: Mood) -> Bool {
-        return self.today.addMood(mood)
+        let didAdd = self.today.addMood(mood)
+        persistDays()
+        return didAdd
+    }
+    
+    func persistDays() {
+        let days = self.days.map { _, day in
+            return day
+        }
+        let data = NSKeyedArchiver.archivedDataWithRootObject(days)
+        NSUserDefaults.standardUserDefaults().setObject(data, forKey: "SampleDays")
     }
 }

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="gA7-qD-oyU" customClass="TimeScaleView" customModule="Charts">
-                                <rect key="frame" x="64" y="192" width="472" height="364"/>
+                                <rect key="frame" x="64" y="216" width="472" height="340"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="insideScale">
@@ -31,7 +31,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGO-Hn-3yy">
-                                <rect key="frame" x="224" y="84" width="64" height="64"/>
+                                <rect key="frame" x="224" y="108" width="64" height="64"/>
                                 <color key="backgroundColor" red="0.0" green="0.87450980389999999" blue="0.50588235290000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="3o6-YX-qoq"/>
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28P-El-U6a">
-                                <rect key="frame" x="312" y="84" width="64" height="64"/>
+                                <rect key="frame" x="312" y="108" width="64" height="64"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.06787109375" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="DJg-Xi-914"/>
@@ -52,20 +52,29 @@
                                     <action selector="badButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="zpT-cD-Qhc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How are you feeling?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9g-Ma-SFr">
+                                <rect key="frame" x="220.5" y="64" width="159" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="U9g-Ma-SFr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5JK-kf-ELr"/>
+                            <constraint firstItem="U9g-Ma-SFr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="BkA-V9-JdL"/>
                             <constraint firstItem="gA7-qD-oyU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="44" id="Ncf-fn-85t"/>
-                            <constraint firstItem="28P-El-U6a" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="Qmy-2r-WCp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gA7-qD-oyU" secondAttribute="trailing" constant="44" id="UYu-jm-nyF"/>
-                            <constraint firstItem="fGO-Hn-3yy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="Z77-cu-AkO"/>
                             <constraint firstItem="28P-El-U6a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="44" id="Zrn-vq-EpL"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gA7-qD-oyU" secondAttribute="bottom" constant="44" id="a59-ud-Fj0"/>
                             <constraint firstItem="gA7-qD-oyU" firstAttribute="top" secondItem="28P-El-U6a" secondAttribute="bottom" constant="44" id="eaY-Hg-FKv"/>
                             <constraint firstItem="fGO-Hn-3yy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-44" id="n33-77-edo"/>
+                            <constraint firstItem="28P-El-U6a" firstAttribute="top" secondItem="U9g-Ma-SFr" secondAttribute="bottom" constant="24" id="tjO-2g-sQJ"/>
+                            <constraint firstItem="fGO-Hn-3yy" firstAttribute="top" secondItem="U9g-Ma-SFr" secondAttribute="bottom" constant="24" id="wEj-tm-gco"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="U9g-Ma-SFr" id="dVQ-Je-c5L"/>
                         <outlet property="timeChart" destination="gA7-qD-oyU" id="4rd-RN-xvl"/>
                     </connections>
                 </viewController>

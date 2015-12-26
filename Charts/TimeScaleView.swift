@@ -33,6 +33,11 @@ public class TimeScaleView: UIView {
         setUpSlices()
     }
     
+    public override func layoutSubviews() {
+        setUpSlices()
+        super.layoutSubviews()
+    }
+    
     func setUpSlices() {
         let totalPointsCount = dataPoints.reduce(0, combine: { $0 + $1.value })
         let angleForValue = 360 / totalPointsCount
