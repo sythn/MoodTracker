@@ -8,11 +8,21 @@
 
 import Foundation
 
-public enum Mood: Int, CustomStringConvertible {
+public enum Mood: Double, CustomStringConvertible {
     case Good = 1
     case Bad = 0
+    case Neutral = 0.5
     
     public var description: String {
-        return self == .Good ? "Good" : "Bad"
+        switch self {
+        case .Good:
+            return "Good"
+            
+        case .Neutral:
+            return "Neutral"
+            
+        case .Bad:
+            return "Bad"
+        }
     }
 }

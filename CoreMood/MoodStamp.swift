@@ -19,7 +19,7 @@ public final class MoodStamp: NSObject, NSCoding {
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        guard let mood = Mood(rawValue: aDecoder.decodeIntegerForKey(Keys.Mood)),
+        guard let mood = Mood(rawValue: aDecoder.decodeDoubleForKey(Keys.Mood)),
             let timestamp = aDecoder.decodeObjectForKey(Keys.Timestamp) as? NSDate else {
                 self.mood = .Good
                 self.timestamp = NSDate()
@@ -33,7 +33,7 @@ public final class MoodStamp: NSObject, NSCoding {
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeInteger(self.mood.rawValue, forKey: Keys.Mood)
+        aCoder.encodeDouble(self.mood.rawValue, forKey: Keys.Mood)
         aCoder.encodeObject(self.timestamp, forKey: Keys.Timestamp)
     }
     

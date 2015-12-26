@@ -20,14 +20,14 @@ public struct DayStatistics {
     
     public init(moodStamps: [MoodStamp]) {
         
-        var totalValues = [Int]()
-        var valuesForHours = [Int: [Int]]()
+        var totalValues = [Double]()
+        var valuesForHours = [Int: [Double]]()
         
         for stamp in moodStamps {
             totalValues.append(stamp.mood.rawValue)
             
             let hour = stamp.timestamp.hour
-            var moodForHour = valuesForHours[hour] ?? [Int]()
+            var moodForHour = valuesForHours[hour] ?? [Double]()
             moodForHour.append(stamp.mood.rawValue)
             
             valuesForHours[hour] = moodForHour

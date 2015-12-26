@@ -9,9 +9,9 @@
 import Foundation
 
 public struct MoodValue: CustomStringConvertible {
-    public var values: [Int]
+    public var values: [Double]
     
-    public init(values: [Int]) {
+    public init(values: [Double]) {
         self.values = values
     }
     
