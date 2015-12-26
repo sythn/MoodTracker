@@ -45,10 +45,10 @@ class MoodStatisticsTests: XCTestCase {
     }
     
     func testSingleValueStatistics() {
-        let statistics = Day(moodStamps: [MoodStamp(mood: .Good)]).statistics
+        let statistics = Day(moodStamps: [MoodStamp(mood: .Neutral)]).statistics
         
         XCTAssertEqual(statistics.moodValue.scale, 1/12)
-        XCTAssertEqual(statistics.moodValue.percentage, 1, "Mood value should be all \"good\"")
+        XCTAssertEqual(statistics.moodValue.percentage, 1/2, "Mood value should be all \"good\"")
         XCTAssertEqual(statistics.moodValue.values.count, 1, "Statistics should have a single value")
         XCTAssertEqual(statistics.moodValuePerHours.count, 1, "Statistics should have a single day value")
     }

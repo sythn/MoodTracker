@@ -25,6 +25,9 @@ class MoodTests: XCTestCase {
         
         let bad = Mood.Bad
         XCTAssert(bad == .Bad)
+        
+        let neutral = Mood.Neutral
+        XCTAssert(neutral == .Neutral)
     }
 
 }
