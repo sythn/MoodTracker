@@ -10,16 +10,18 @@ import UIKit
 import CoreMood
 import Charts
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet var timeChart: TimeScaleView!
+    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var descriptionLabel: UILabel!
     
     var dataController = DataController()
+    var daysInOrder: [Day] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         updateChart()
+        setUpCollectionView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,8 +44,24 @@ class MainViewController: UIViewController {
         displayMessageOrTimer(didAdd ? moodMessage : nil)
     }
     
+    private let TimeScaleCollectionViewReuseIdentifier = "TimeScaleCollectionView"
+    func setUpCollectionView() {
+        self.collectionView.collectionViewLayout = CollectionViewPageFlowLayout()
+        self.collectionView.registerClass(TimeScaleCollectionCell.self, forCellWithReuseIdentifier: TimeScaleCollectionViewReuseIdentifier)
+    }
+    
+    func updateDaysInOrder() {
+        var days = Array(self.dataController.days.values)
+        days.sortInPlace { first, second in
+            return first.date < second.date
+        }
+        self.daysInOrder = days
+    }
+    
     func updateChart() {
-        self.timeChart.setDay(dataController.today)
+        updateDaysInOrder()
+        self.collectionView.reloadData()
+        self.collectionView.pageIndex = self.collectionView.pageCount - 1
     }
     
     func displayMessageOrTimer(message: String?) {
@@ -58,6 +76,24 @@ class MainViewController: UIViewController {
         let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC) * 2)
         dispatch_after(dispatchTime, dispatch_get_main_queue()) {
             self.descriptionLabel.text = "How are you feeling?"
+        }
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.daysInOrder.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCellWithReuseIdentifier(TimeScaleCollectionViewReuseIdentifier, forIndexPath: indexPath)
+    }
+    
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        if let timeScaleCell = cell as? TimeScaleCollectionCell {
+            timeScaleCell.day = self.daysInOrder[indexPath.row]
         }
     }
 }

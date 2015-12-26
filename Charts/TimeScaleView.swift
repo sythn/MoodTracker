@@ -17,28 +17,35 @@ public class TimeScaleView: UIView {
     
     public var dataPoints: [TimeScaleDataPoint] = [] {
         didSet {
-            setUpSlices()
+            updateSlices()
         }
     }
     
+    var chartLayer = CALayer()
     var slices = [CAShapeLayer]()
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        setUpSlices()
+        setUp()
+        updateSlices()
     }
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setUpSlices()
+        setUp()
+        updateSlices()
     }
     
     public override func layoutSubviews() {
-        setUpSlices()
+        updateSlices()
         super.layoutSubviews()
     }
     
-    func setUpSlices() {
+    func setUp() {
+        self.layer.addSublayer(self.chartLayer)
+    }
+    
+    func updateSlices() {
         let totalPointsCount = dataPoints.reduce(0, combine: { $0 + $1.value })
         let angleForValue = 360 / totalPointsCount
 
@@ -67,14 +74,27 @@ public class TimeScaleView: UIView {
     
             slice.position = ovalRect.origin
             
-            layer.addSublayer(slice)
+            self.chartLayer.addSublayer(slice)
             
             return slice
             
         }
         
         punchAHoleInTheMiddleWithRect(ovalRect)
+        fillHoleInTheMiddleWithRect(ovalRect.insetBy(dx: 10, dy: 10))
         
+    }
+    
+    var circleLayer: CAShapeLayer?
+    func fillHoleInTheMiddleWithRect(rect: CGRect) {
+        let center = rect.size.CGPointValue / 2
+        let circleLayer = CAShapeLayer()
+        let circlePath = UIBezierPath(arcCenter: center, radius: center.x * insideScale, startAngle: 0, endAngle: CGFloat(360).angleInRadian(), clockwise: true)
+        circleLayer.path = circlePath.CGPath
+        circleLayer.fillColor = UIColor.blueColor().CGColor
+        circleLayer.position = rect.origin
+        
+//        self.layer.addSublayer(circleLayer)
     }
     
     func punchAHoleInTheMiddleWithRect(rect: CGRect) {
@@ -86,7 +106,7 @@ public class TimeScaleView: UIView {
         midClip.position = rect.origin
         midClip.fillRule = kCAFillRuleEvenOdd
         
-        layer.mask = midClip
+        self.chartLayer.mask = midClip
     }
     
     

@@ -160,5 +160,32 @@ class DayTests: XCTestCase {
             XCTAssertTrue(NSCalendar.currentCalendar().isDate(dateBack1, inSameDayAsDate: dateBack2), "Dates should be in the same day")
         }
     }
+    
+    func testYesterday() {
+        let today = NSDate()
+        let yesterday = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: -1, toDate: today, options: [])!
+        XCTAssertTrue(NSCalendar.currentCalendar().isDateInYesterday(yesterday), "Wut?")
+        
+        let todayDay = DayDate()
+        let yesterdayDay = todayDay.dateWithDaysAfter(-1)
+        XCTAssertNotNil(yesterdayDay, "Yesterday should not be nil")
+        
+        if let yesterdayDay = yesterdayDay {
+            XCTAssertTrue(NSCalendar.currentCalendar().isDateInYesterday(yesterdayDay.date!))
+        }
+    }
+    
+    func testComparison() {
+        let earlierDate = NSCalendar.currentCalendar().dateByAddingUnit(.Month, value: -1, toDate: NSDate(), options: [])!
+        let laterDate = NSCalendar.currentCalendar().dateByAddingUnit(.Month, value: 1, toDate: NSDate(), options: [])!
+        
+        let control = DayDate()
+        let earlier = DayDate(date: earlierDate)
+        let later = DayDate(date: laterDate)
+        
+        XCTAssertTrue(earlier < control)
+        XCTAssertTrue(later > control)
+        XCTAssertTrue(earlier < later)
+    }
 
 }
