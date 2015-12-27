@@ -32,6 +32,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         tryAddMood(.Good)
     }
     
+    @IBAction func neutralButtonTapped() {
+        tryAddMood(.Neutral)
+    }
+    
     @IBAction func badButtonTapped() {
         tryAddMood(.Bad)
     }
