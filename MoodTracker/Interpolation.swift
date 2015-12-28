@@ -47,7 +47,7 @@ public struct Interpolation<Item where Item: Interpolatable> {
     
     public subscript(point: Double) -> Item {
         get {
-            if point.isNaN {
+            if !point.isFinite {
                 return interpolatedValueForPoint(self.points[0])
             }
             return interpolatedValueForPoint(point)
