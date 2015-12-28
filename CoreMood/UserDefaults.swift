@@ -1,0 +1,31 @@
+//
+//  UserDefaults.swift
+//  MoodTracker
+//
+//  Created by Seyithan Teymur on 28/12/15.
+//  Copyright © 2015 Brokoli. All rights reserved.
+//
+
+import UIKit
+
+public struct UserDefaults {
+    public static var notificationHourStart: Int {
+        get {
+            return AppConfiguration.sharedConfiguration.applicationUserDefaults.integerForKey(AppConfiguration.DefaultsKeys.NotificationHoursStart)
+        }
+        
+        set(start){
+            AppConfiguration.sharedConfiguration.applicationUserDefaults.setInteger(start, forKey: AppConfiguration.DefaultsKeys.NotificationHoursStart)
+        }
+    }
+    
+    public static var notificationHourEnd: Int {
+        get {
+            return AppConfiguration.sharedConfiguration.applicationUserDefaults.integerForKey(AppConfiguration.DefaultsKeys.NotificationHoursEnd)
+        }
+        
+        set(end) {
+            AppConfiguration.sharedConfiguration.applicationUserDefaults.setInteger(end, forKey: AppConfiguration.DefaultsKeys.NotificationHoursEnd)
+        }
+    }
+}

@@ -23,8 +23,6 @@
 		6C263EAC1C2C213E00389124 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263EAB1C2C213E00389124 /* DataController.swift */; };
 		6C263EAE1C2C226C00389124 /* DayDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263EAD1C2C226C00389124 /* DayDate.swift */; };
 		6C3E8A101C3094EE00F915ED /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E8A0F1C3094EE00F915ED /* Interpolation.swift */; };
-		6C3EAFCB1C31136000396E29 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3EAFCA1C31136000396E29 /* NotificationController.swift */; };
-		6C3EAFCD1C3113C700396E29 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3EAFCC1C3113C700396E29 /* UserDefaultsKeys.swift */; };
 		6C41BC831C2ED36200244226 /* CollectionViewPageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C41BC821C2ED36200244226 /* CollectionViewPageFlowLayout.swift */; };
 		6C41BC851C2ED3C600244226 /* UIScrollViewAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C41BC841C2ED3C600244226 /* UIScrollViewAdditions.swift */; };
 		6C5EB59B1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5EB59A1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift */; };
@@ -42,6 +40,9 @@
 		6CC6511E1C0DFDB800CD7FCC /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6511D1C0DFDB800CD7FCC /* Mood.swift */; };
 		6CC651201C0DFE4C00CD7FCC /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6511F1C0DFE4C00CD7FCC /* Day.swift */; };
 		6CC651221C0DFE9200CD7FCC /* MoodStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC651211C0DFE9200CD7FCC /* MoodStamp.swift */; };
+		6CCD6B841C313B250001CFEE /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCD6B831C313B250001CFEE /* AppConfiguration.swift */; };
+		6CCD6B881C3177D00001CFEE /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCD6B871C3177D00001CFEE /* UserDefaults.swift */; };
+		6CCD6B891C317FED0001CFEE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCD6B851C313CB50001CFEE /* NotificationController.swift */; };
 		6CE4876B1C2C5383001D9E6D /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE4876A1C2C5383001D9E6D /* DateTests.swift */; };
 		6CE4876F1C2D15B3001D9E6D /* DayChartExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE4876E1C2D15B3001D9E6D /* DayChartExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -116,8 +117,6 @@
 		6C263EAB1C2C213E00389124 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		6C263EAD1C2C226C00389124 /* DayDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayDate.swift; sourceTree = "<group>"; };
 		6C3E8A0F1C3094EE00F915ED /* Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; wrapsLines = 0; };
-		6C3EAFCA1C31136000396E29 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		6C3EAFCC1C3113C700396E29 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		6C41BC821C2ED36200244226 /* CollectionViewPageFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPageFlowLayout.swift; sourceTree = "<group>"; };
 		6C41BC841C2ED3C600244226 /* UIScrollViewAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewAdditions.swift; sourceTree = "<group>"; };
 		6C5EB59A1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScaleCollectionCell.swift; sourceTree = "<group>"; };
@@ -140,6 +139,9 @@
 		6CC6511D1C0DFDB800CD7FCC /* Mood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		6CC6511F1C0DFE4C00CD7FCC /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		6CC651211C0DFE9200CD7FCC /* MoodStamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodStamp.swift; sourceTree = "<group>"; };
+		6CCD6B831C313B250001CFEE /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		6CCD6B851C313CB50001CFEE /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		6CCD6B871C3177D00001CFEE /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		6CE4876A1C2C5383001D9E6D /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		6CE4876E1C2D15B3001D9E6D /* DayChartExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayChartExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,8 +228,6 @@
 		6CC650D91C0DFD8100CD7FCC /* MoodTracker */ = {
 			isa = PBXGroup;
 			children = (
-				6C3EAFCA1C31136000396E29 /* NotificationController.swift */,
-				6C3EAFCC1C3113C700396E29 /* UserDefaultsKeys.swift */,
 				6CE4876D1C2D159F001D9E6D /* ViewModel */,
 				6CC650DA1C0DFD8100CD7FCC /* AppDelegate.swift */,
 				6CC650DC1C0DFD8100CD7FCC /* MainViewController.swift */,
@@ -262,6 +262,8 @@
 				6C263E771C2957B400389124 /* MoodValue.swift */,
 				6C263E791C2959FD00389124 /* DayStatistics.swift */,
 				6C263EAD1C2C226C00389124 /* DayDate.swift */,
+				6CCD6B831C313B250001CFEE /* AppConfiguration.swift */,
+				6CCD6B871C3177D00001CFEE /* UserDefaults.swift */,
 				6CE4876C1C2D0D5F001D9E6D /* Controller */,
 			);
 			path = CoreMood;
@@ -285,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				6C263EAB1C2C213E00389124 /* DataController.swift */,
+				6CCD6B851C313CB50001CFEE /* NotificationController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -524,9 +527,8 @@
 			files = (
 				6C41BC831C2ED36200244226 /* CollectionViewPageFlowLayout.swift in Sources */,
 				6CC650DD1C0DFD8100CD7FCC /* MainViewController.swift in Sources */,
-				6C3EAFCB1C31136000396E29 /* NotificationController.swift in Sources */,
+				6CCD6B891C317FED0001CFEE /* NotificationController.swift in Sources */,
 				6CC650DB1C0DFD8100CD7FCC /* AppDelegate.swift in Sources */,
-				6C3EAFCD1C3113C700396E29 /* UserDefaultsKeys.swift in Sources */,
 				6CE4876F1C2D15B3001D9E6D /* DayChartExtensions.swift in Sources */,
 				6C5EB59B1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift in Sources */,
 				6C41BC851C2ED3C600244226 /* UIScrollViewAdditions.swift in Sources */,
@@ -548,9 +550,11 @@
 			files = (
 				6C263E781C2957B400389124 /* MoodValue.swift in Sources */,
 				6C263EAC1C2C213E00389124 /* DataController.swift in Sources */,
+				6CCD6B841C313B250001CFEE /* AppConfiguration.swift in Sources */,
 				6CC651201C0DFE4C00CD7FCC /* Day.swift in Sources */,
 				6C263EAE1C2C226C00389124 /* DayDate.swift in Sources */,
 				6C263E7A1C2959FD00389124 /* DayStatistics.swift in Sources */,
+				6CCD6B881C3177D00001CFEE /* UserDefaults.swift in Sources */,
 				6CC651221C0DFE9200CD7FCC /* MoodStamp.swift in Sources */,
 				6CC6511E1C0DFDB800CD7FCC /* Mood.swift in Sources */,
 			);
