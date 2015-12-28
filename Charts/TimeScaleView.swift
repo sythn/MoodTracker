@@ -21,6 +21,8 @@ public class TimeScaleView: UIView {
         }
     }
     
+    public var circleColor: UIColor?
+    
     var chartLayer = CALayer()
     var slices = [CAShapeLayer]()
     
@@ -43,9 +45,16 @@ public class TimeScaleView: UIView {
     
     func setUp() {
         self.layer.addSublayer(self.chartLayer)
+        self.layer.backgroundColor = UIColor.clearColor().CGColor
+        self.backgroundColor = UIColor.clearColor()
+        
+        let ovalRect = self.bounds.maxSquareRectInside
+        fillHoleInTheMiddleWithRect(ovalRect.insetBy(dx: 10, dy: 10))
     }
     
     func updateSlices() {
+        self.setNeedsDisplay()
+        
         let totalPointsCount = dataPoints.reduce(0, combine: { $0 + $1.value })
         let angleForValue = 360 / totalPointsCount
 
@@ -81,20 +90,30 @@ public class TimeScaleView: UIView {
         }
         
         punchAHoleInTheMiddleWithRect(ovalRect)
-        fillHoleInTheMiddleWithRect(ovalRect.insetBy(dx: 10, dy: 10))
-        
+        resetCircleLayerWithRect(ovalRect.insetBy(dx: 20, dy: 20))
     }
     
-    var circleLayer: CAShapeLayer?
+    var circleLayer: CAShapeLayer!
     func fillHoleInTheMiddleWithRect(rect: CGRect) {
         let center = rect.size.CGPointValue / 2
-        let circleLayer = CAShapeLayer()
+        circleLayer = CAShapeLayer()
         let circlePath = UIBezierPath(arcCenter: center, radius: center.x * insideScale, startAngle: 0, endAngle: CGFloat(360).angleInRadian(), clockwise: true)
         circleLayer.path = circlePath.CGPath
         circleLayer.fillColor = UIColor.blueColor().CGColor
         circleLayer.position = rect.origin
         
-//        self.layer.addSublayer(circleLayer)
+        self.layer.addSublayer(circleLayer)
+    }
+    
+    func resetCircleLayerWithRect(rect: CGRect) {
+        let center = rect.size.CGPointValue / 2
+        let circlePath = UIBezierPath(arcCenter: center, radius: center.x * insideScale, startAngle: 0, endAngle: CGFloat(360).angleInRadian(), clockwise: true)
+        circleLayer.path = circlePath.CGPath
+        circleLayer.position = rect.origin
+        
+        if let color = circleColor {
+            circleLayer.fillColor = color.CGColor
+        }
     }
     
     func punchAHoleInTheMiddleWithRect(rect: CGRect) {

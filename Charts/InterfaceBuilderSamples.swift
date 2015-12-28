@@ -47,9 +47,10 @@ extension TimeScaleView {
             SampleTimeScaleDataPoint(scale: 0, value: 1, color: green2),
             SampleTimeScaleDataPoint(scale: 7/12, value: 1, color: green2),
             SampleTimeScaleDataPoint(scale: 1/12, value: 1, color: green1),
-            SampleTimeScaleDataPoint(scale: 1/12, value: 1, color: green2),
             SampleTimeScaleDataPoint(scale: 0, value: 1, color: yellow3),
-            SampleTimeScaleDataPoint(scale: 3/12, value: 1, color: yellow2)
+            SampleTimeScaleDataPoint(scale: 3/12, value: 1, color: yellow2),
+            SampleTimeScaleDataPoint(scale: 1/12, value: 1, color: yellow1),
+            SampleTimeScaleDataPoint(scale: 2/12, value: 1, color: yellow1)
         ]
     }
 }

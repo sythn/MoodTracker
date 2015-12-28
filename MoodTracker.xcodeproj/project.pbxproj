@@ -23,6 +23,8 @@
 		6C263EAC1C2C213E00389124 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263EAB1C2C213E00389124 /* DataController.swift */; };
 		6C263EAE1C2C226C00389124 /* DayDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263EAD1C2C226C00389124 /* DayDate.swift */; };
 		6C3E8A101C3094EE00F915ED /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E8A0F1C3094EE00F915ED /* Interpolation.swift */; };
+		6C3EAFCB1C31136000396E29 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3EAFCA1C31136000396E29 /* NotificationController.swift */; };
+		6C3EAFCD1C3113C700396E29 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3EAFCC1C3113C700396E29 /* UserDefaultsKeys.swift */; };
 		6C41BC831C2ED36200244226 /* CollectionViewPageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C41BC821C2ED36200244226 /* CollectionViewPageFlowLayout.swift */; };
 		6C41BC851C2ED3C600244226 /* UIScrollViewAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C41BC841C2ED3C600244226 /* UIScrollViewAdditions.swift */; };
 		6C5EB59B1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5EB59A1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift */; };
@@ -114,6 +116,8 @@
 		6C263EAB1C2C213E00389124 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		6C263EAD1C2C226C00389124 /* DayDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayDate.swift; sourceTree = "<group>"; };
 		6C3E8A0F1C3094EE00F915ED /* Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		6C3EAFCA1C31136000396E29 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		6C3EAFCC1C3113C700396E29 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		6C41BC821C2ED36200244226 /* CollectionViewPageFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPageFlowLayout.swift; sourceTree = "<group>"; };
 		6C41BC841C2ED3C600244226 /* UIScrollViewAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewAdditions.swift; sourceTree = "<group>"; };
 		6C5EB59A1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScaleCollectionCell.swift; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 		6CC650D91C0DFD8100CD7FCC /* MoodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				6C3EAFCA1C31136000396E29 /* NotificationController.swift */,
+				6C3EAFCC1C3113C700396E29 /* UserDefaultsKeys.swift */,
 				6CE4876D1C2D159F001D9E6D /* ViewModel */,
 				6CC650DA1C0DFD8100CD7FCC /* AppDelegate.swift */,
 				6CC650DC1C0DFD8100CD7FCC /* MainViewController.swift */,
@@ -518,7 +524,9 @@
 			files = (
 				6C41BC831C2ED36200244226 /* CollectionViewPageFlowLayout.swift in Sources */,
 				6CC650DD1C0DFD8100CD7FCC /* MainViewController.swift in Sources */,
+				6C3EAFCB1C31136000396E29 /* NotificationController.swift in Sources */,
 				6CC650DB1C0DFD8100CD7FCC /* AppDelegate.swift in Sources */,
+				6C3EAFCD1C3113C700396E29 /* UserDefaultsKeys.swift in Sources */,
 				6CE4876F1C2D15B3001D9E6D /* DayChartExtensions.swift in Sources */,
 				6C5EB59B1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift in Sources */,
 				6C41BC851C2ED3C600244226 /* UIScrollViewAdditions.swift in Sources */,

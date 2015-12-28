@@ -66,10 +66,15 @@ extension Day {
             return MoodValue(values: [])
         }
     }
+    
+    var circleColor: UIColor {
+        return colorInterpolation[self.statistics.moodValue.percentage]
+    }
 }
 
 extension TimeScaleView {
     func setDay(day: Day) {
+        self.circleColor = day.circleColor
         self.dataPoints = day.timeScaleDataPoints
     }
 }
