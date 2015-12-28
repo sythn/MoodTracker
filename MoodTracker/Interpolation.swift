@@ -21,8 +21,8 @@ public struct Interpolation<Item where Item: Interpolatable> {
         
         var _points: [Double]
         
-        if points != nil && points?.count == values.count {
-            _points = points!
+        if let points = points where points.count == values.count {
+            _points = points
         } else {
             _points = [Double]()
             for i in 0..<values.count {

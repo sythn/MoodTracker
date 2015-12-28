@@ -113,7 +113,7 @@
 		6C263EA71C2C1DF400389124 /* InterfaceBuilderSamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceBuilderSamples.swift; sourceTree = "<group>"; };
 		6C263EAB1C2C213E00389124 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		6C263EAD1C2C226C00389124 /* DayDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayDate.swift; sourceTree = "<group>"; };
-		6C3E8A0F1C3094EE00F915ED /* Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
+		6C3E8A0F1C3094EE00F915ED /* Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		6C41BC821C2ED36200244226 /* CollectionViewPageFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPageFlowLayout.swift; sourceTree = "<group>"; };
 		6C41BC841C2ED3C600244226 /* UIScrollViewAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewAdditions.swift; sourceTree = "<group>"; };
 		6C5EB59A1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScaleCollectionCell.swift; sourceTree = "<group>"; };
