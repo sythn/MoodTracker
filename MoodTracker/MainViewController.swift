@@ -23,6 +23,12 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         updateChart()
         setUpCollectionView()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        scrollToLastPageAnimated(animated)
+        
+        super.viewDidAppear(animated)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -65,7 +71,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func updateChart() {
         updateDaysInOrder()
         self.collectionView.reloadData()
-        self.collectionView.pageIndex = self.collectionView.pageCount - 1
+        
+        scrollToLastPageAnimated(true)
+    }
+    
+    func scrollToLastPageAnimated(animated: Bool) {
+        let lastPage = self.collectionView.pageCount - 1
+        self.collectionView.setPageIndex(lastPage, animated: animated)
     }
     
     func displayMessageOrTimer(message: String?) {
