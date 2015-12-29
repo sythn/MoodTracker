@@ -68,21 +68,25 @@ public class NotificationController {
                     UIApplication.sharedApplication().scheduleLocalNotification(notification)
                 }
             }
+            
+            print(UIApplication.sharedApplication().scheduledLocalNotifications)
         }
     }
     
     func notificationArrayForDayOffset(dayOffset: Int) -> [UILocalNotification] {
-        guard let dayStart = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: dayOffset, toDate: NSDate(), options: []) else {
+        guard let dayStart = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: 0, toDate: NSDate(), options: []) else {
             return []
         }
         
         var notifications = [UILocalNotification]()
         for hour in UserDefaults.notificationHourStart...UserDefaults.notificationHourEnd {
-            if let notificationTime = NSCalendar.currentCalendar().dateBySettingHour(hour, minute: 0, second: 0, ofDate: dayStart, options: []) {
+            if let notificationTime = NSCalendar.currentCalendar().dateBySettingHour(hour, minute: 7, second: 0, ofDate: dayStart, options: []) {
                 
                 let notification = UILocalNotification()
-                notification.alertTitle = "How are you feeling?"
+                notification.alertBody = "How are you feeling?"
+                notification.soundName = UILocalNotificationDefaultSoundName
                 notification.repeatInterval = .Day
+                notification.category = Keys.MoodNotificationCategory
                 notification.fireDate = notificationTime
                 
                 notifications.append(notification)

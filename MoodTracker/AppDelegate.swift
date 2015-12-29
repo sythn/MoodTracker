@@ -29,6 +29,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationController.sharedController.resetNotificationsWithDayCount(1)
     }
 
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        
+    }
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        completionHandler()
+    }
+    
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
+        completionHandler()
+    }
+    
     func applicationDidEnterBackground(application: UIApplication) {
         
     }
