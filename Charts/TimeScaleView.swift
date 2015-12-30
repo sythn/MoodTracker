@@ -90,7 +90,7 @@ public class TimeScaleView: UIView {
         }
         
         punchAHoleInTheMiddleWithRect(ovalRect)
-        resetCircleLayerWithRect(ovalRect.insetBy(dx: 20, dy: 20))
+        resetCircleLayerWithRect(ovalRect)
     }
     
     var circleLayer: CAShapeLayer!
@@ -107,7 +107,7 @@ public class TimeScaleView: UIView {
     
     func resetCircleLayerWithRect(rect: CGRect) {
         let center = rect.size.CGPointValue / 2
-        let circlePath = UIBezierPath(arcCenter: center, radius: center.x * insideScale, startAngle: 0, endAngle: CGFloat(360).angleInRadian(), clockwise: true)
+        let circlePath = UIBezierPath(arcCenter: center, radius: center.x * (insideScale - 0.03), startAngle: 0, endAngle: CGFloat(360).angleInRadian(), clockwise: true)
         circleLayer.path = circlePath.CGPath
         circleLayer.position = rect.origin
         

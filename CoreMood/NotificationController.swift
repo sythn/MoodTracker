@@ -36,20 +36,23 @@ public class NotificationController {
         
         let goodAction = UIMutableUserNotificationAction()
         goodAction.identifier = Keys.MoodNotificationActionGood
+        goodAction.activationMode = .Background
         goodAction.title = "Good"
         
         let badAction = UIMutableUserNotificationAction()
-        goodAction.identifier = Keys.MoodNotificationActionBad
-        goodAction.title = "Bad"
+        badAction.identifier = Keys.MoodNotificationActionBad
+        badAction.activationMode = .Background
+        badAction.title = "Bad"
         
         let neutralAction = UIMutableUserNotificationAction()
-        goodAction.identifier = Keys.MoodNotificationActionNeutral
-        goodAction.title = "Neutral"
+        neutralAction.identifier = Keys.MoodNotificationActionNeutral
+        neutralAction.activationMode = .Background
+        neutralAction.title = "Neutral"
         
         let moodNotificationCategory = UIMutableUserNotificationCategory()
         moodNotificationCategory.identifier = Keys.MoodNotificationCategory
-        moodNotificationCategory.setActions([goodAction, badAction], forContext: .Minimal)
         moodNotificationCategory.setActions([goodAction, badAction, neutralAction], forContext: .Default)
+        moodNotificationCategory.setActions([goodAction, badAction], forContext: .Minimal)
         
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: [moodNotificationCategory])
         
@@ -80,7 +83,7 @@ public class NotificationController {
         
         var notifications = [UILocalNotification]()
         for hour in UserDefaults.notificationHourStart...UserDefaults.notificationHourEnd {
-            if let notificationTime = NSCalendar.currentCalendar().dateBySettingHour(hour, minute: 7, second: 0, ofDate: dayStart, options: []) {
+            if let notificationTime = NSCalendar.currentCalendar().dateBySettingHour(hour, minute: 1, second: 10, ofDate: dayStart, options: []) {
                 
                 let notification = UILocalNotification()
                 notification.alertBody = "How are you feeling?"
