@@ -8,10 +8,8 @@
 
 import Foundation
 
-public class DataController: NSObject {
-    public var days: [DayDate: Day]
-    
-    public override init() {
+public struct DataControllerUtilities {
+    static func daysFromUserDefaults() -> [DayDate: Day]? {
         let data = NSUserDefaults.standardUserDefaults().objectForKey("SampleDays") as? NSData
         if let data = data where data.length > 0,
             let days = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Day] {
@@ -19,12 +17,38 @@ public class DataController: NSObject {
                 for day in days {
                     dayDict[day.date] = day
                 }
-                self.days = dayDict
+                return dayDict
+        }
+        
+        return nil
+    }
+}
+
+public protocol DataControllerDelegate {
+    func didRefreshData()
+}
+
+public class DataController: NSObject {
+    public var days: [DayDate: Day]
+    public var delegate: DataControllerDelegate?
+    
+    public override init() {
+        if let dayDict = DataControllerUtilities.daysFromUserDefaults() {
+            self.days = dayDict
         } else {
             days = [DayDate: Day]()
         }
         
         super.init()
+        
+        NSUserDefaults.standardUserDefaults().addObserver(self, forKeyPath: "SampleDays", options: NSKeyValueObservingOptions.New, context: nil)
+    }
+    
+    public override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if let days = DataControllerUtilities.daysFromUserDefaults() {
+            self.days = days
+            self.delegate?.didRefreshData()
+        }
     }
     
     public var today: Day {

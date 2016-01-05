@@ -34,10 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+        NotificationController.sharedController.handleNotificationWithIdentifier(identifier)
         completionHandler()
     }
     
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
+        NotificationController.sharedController.handleNotificationWithIdentifier(identifier)
         completionHandler()
     }
     

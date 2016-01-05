@@ -34,6 +34,31 @@ public class NotificationController {
                 }
         }
         
+        registerNotificationSettings()
+    }
+    
+    public func handleNotificationWithIdentifier(identifier: String?) {
+        var mood: Mood?
+        switch identifier {
+        case Keys.MoodNotificationActionGood?:
+            mood = .Good
+            
+        case Keys.MoodNotificationActionBad?:
+            mood = .Bad
+            
+        case Keys.MoodNotificationActionNeutral?:
+            mood = .Neutral
+            
+        default:
+            mood = nil
+        }
+        
+        if let mood = mood {
+            DataController().addMood(mood)
+        }
+    }
+    
+    private func registerNotificationSettings() {
         let goodAction = UIMutableUserNotificationAction()
         goodAction.identifier = Keys.MoodNotificationActionGood
         goodAction.activationMode = .Background
@@ -59,6 +84,7 @@ public class NotificationController {
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
     }
     
+    
     public func resetNotificationsWithDayCount(dayCount: Int) {
         notificationResetOperationQueue.cancelAllOperations()
         notificationResetOperationQueue.addOperationWithBlock { () -> Void in
@@ -83,20 +109,28 @@ public class NotificationController {
         
         var notifications = [UILocalNotification]()
         for hour in UserDefaults.notificationHourStart...UserDefaults.notificationHourEnd {
-            if let notificationTime = NSCalendar.currentCalendar().dateBySettingHour(hour, minute: 1, second: 10, ofDate: dayStart, options: []) {
-                
-                let notification = UILocalNotification()
-                notification.alertBody = "How are you feeling?"
-                notification.soundName = UILocalNotificationDefaultSoundName
-                notification.repeatInterval = .Day
-                notification.category = Keys.MoodNotificationCategory
-                notification.fireDate = notificationTime
-                
-                notifications.append(notification)
+            if let notificationTime = NSCalendar.currentCalendar().dateBySettingHour(hour, minute: 0, second: 5, ofDate: dayStart, options: []) {
+                notifications.append(localNotificationWithDate(notificationTime))
+            }
+            
+            if let halfHourNotificationTime = NSCalendar.currentCalendar().dateBySettingHour(hour, minute: 30, second: 5, ofDate: dayStart, options: []) {
+                notifications.append(localNotificationWithDate(halfHourNotificationTime))
             }
         }
         
         return notifications
+    }
+    
+    private func localNotificationWithDate(date: NSDate, repeating: Bool = true) -> UILocalNotification {
+        let notification = UILocalNotification()
+        notification.alertBody = "How are you feeling?"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        if repeating {
+            notification.repeatInterval = .Day
+        }
+        notification.category = Keys.MoodNotificationCategory
+        notification.fireDate = date
+        return notification
     }
 }
 

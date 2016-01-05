@@ -10,7 +10,7 @@ import UIKit
 import CoreMood
 import Charts
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DataControllerDelegate {
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var descriptionLabel: UILabel!
@@ -20,8 +20,15 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.dataController.delegate = self
+        
         updateChart()
         setUpCollectionView()
+    }
+    
+    func didRefreshData() {
+        updateChart()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -109,7 +116,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         if let timeScaleCell = cell as? TimeScaleCollectionCell {
-            timeScaleCell.day = self.daysInOrder[indexPath.row]
+            let day = self.daysInOrder[indexPath.row]
+            timeScaleCell.day = day
         }
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 public final class Day: NSObject, NSCoding {
-    private let moodAdditionIntervalCap: NSTimeInterval = 5 * 60
+    public let moodAdditionIntervalCap: NSTimeInterval = 5 * 60
     
     public var moodStamps: [MoodStamp]
     public var date: DayDate

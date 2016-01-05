@@ -26,6 +26,7 @@
 		6C41BC831C2ED36200244226 /* CollectionViewPageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C41BC821C2ED36200244226 /* CollectionViewPageFlowLayout.swift */; };
 		6C41BC851C2ED3C600244226 /* UIScrollViewAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C41BC841C2ED3C600244226 /* UIScrollViewAdditions.swift */; };
 		6C5EB59B1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5EB59A1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift */; };
+		6C92883E1C3938C70053A373 /* DiskUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C92883D1C3938C70053A373 /* DiskUtilities.swift */; };
 		6CC650DB1C0DFD8100CD7FCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC650DA1C0DFD8100CD7FCC /* AppDelegate.swift */; };
 		6CC650DD1C0DFD8100CD7FCC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC650DC1C0DFD8100CD7FCC /* MainViewController.swift */; };
 		6CC650E01C0DFD8100CD7FCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC650DE1C0DFD8100CD7FCC /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6C1904F41C33D3BB0088EB5C /* MoodTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MoodTracker.entitlements; sourceTree = "<group>"; };
 		6C263E711C28619000389124 /* MoodTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodTests.swift; sourceTree = "<group>"; };
 		6C263E731C28625800389124 /* MoodStampTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoodStampTests.swift; sourceTree = "<group>"; };
 		6C263E751C29253700389124 /* DayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTests.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		6C41BC821C2ED36200244226 /* CollectionViewPageFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPageFlowLayout.swift; sourceTree = "<group>"; };
 		6C41BC841C2ED3C600244226 /* UIScrollViewAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewAdditions.swift; sourceTree = "<group>"; };
 		6C5EB59A1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScaleCollectionCell.swift; sourceTree = "<group>"; };
+		6C92883D1C3938C70053A373 /* DiskUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiskUtilities.swift; sourceTree = "<group>"; };
 		6CC650D71C0DFD8100CD7FCC /* MoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC650DA1C0DFD8100CD7FCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CC650DC1C0DFD8100CD7FCC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +191,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C1904F51C33D4D30088EB5C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6CC6511D1C0DFDB800CD7FCC /* Mood.swift */,
+				6CC651211C0DFE9200CD7FCC /* MoodStamp.swift */,
+				6CC6511F1C0DFE4C00CD7FCC /* Day.swift */,
+				6C263E771C2957B400389124 /* MoodValue.swift */,
+				6C263E791C2959FD00389124 /* DayStatistics.swift */,
+				6C263EAD1C2C226C00389124 /* DayDate.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6C1904F61C33D4D90088EB5C /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				6CCD6B831C313B250001CFEE /* AppConfiguration.swift */,
+				6CCD6B871C3177D00001CFEE /* UserDefaults.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		6C263E961C298ABD00389124 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +253,7 @@
 		6CC650D91C0DFD8100CD7FCC /* MoodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				6C1904F41C33D3BB0088EB5C /* MoodTracker.entitlements */,
 				6CE4876D1C2D159F001D9E6D /* ViewModel */,
 				6CC650DA1C0DFD8100CD7FCC /* AppDelegate.swift */,
 				6CC650DC1C0DFD8100CD7FCC /* MainViewController.swift */,
@@ -256,14 +282,8 @@
 			children = (
 				6CC651011C0DFDB000CD7FCC /* CoreMood.h */,
 				6CC651031C0DFDB000CD7FCC /* Info.plist */,
-				6CC6511D1C0DFDB800CD7FCC /* Mood.swift */,
-				6CC651211C0DFE9200CD7FCC /* MoodStamp.swift */,
-				6CC6511F1C0DFE4C00CD7FCC /* Day.swift */,
-				6C263E771C2957B400389124 /* MoodValue.swift */,
-				6C263E791C2959FD00389124 /* DayStatistics.swift */,
-				6C263EAD1C2C226C00389124 /* DayDate.swift */,
-				6CCD6B831C313B250001CFEE /* AppConfiguration.swift */,
-				6CCD6B871C3177D00001CFEE /* UserDefaults.swift */,
+				6C1904F51C33D4D30088EB5C /* Model */,
+				6C1904F61C33D4D90088EB5C /* Utility */,
 				6CE4876C1C2D0D5F001D9E6D /* Controller */,
 			);
 			path = CoreMood;
@@ -287,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				6C263EAB1C2C213E00389124 /* DataController.swift */,
+				6C92883D1C3938C70053A373 /* DiskUtilities.swift */,
 				6CCD6B851C313CB50001CFEE /* NotificationController.swift */,
 			);
 			name = Controller;
@@ -432,6 +453,11 @@
 					6CC650D61C0DFD8100CD7FCC = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = D6AUYP5YRR;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					6CC650EA1C0DFD8100CD7FCC = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -549,6 +575,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C263E781C2957B400389124 /* MoodValue.swift in Sources */,
+				6C92883E1C3938C70053A373 /* DiskUtilities.swift in Sources */,
 				6C263EAC1C2C213E00389124 /* DataController.swift in Sources */,
 				6CCD6B841C313B250001CFEE /* AppConfiguration.swift in Sources */,
 				6CC651201C0DFE4C00CD7FCC /* Day.swift in Sources */,
@@ -755,12 +782,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MoodTracker/MoodTracker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MoodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tr.com.Brokoli.MoodTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -768,12 +798,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MoodTracker/MoodTracker.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = MoodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tr.com.Brokoli.MoodTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
