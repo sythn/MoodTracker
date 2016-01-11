@@ -44,6 +44,7 @@
 		6CCD6B841C313B250001CFEE /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCD6B831C313B250001CFEE /* AppConfiguration.swift */; };
 		6CCD6B881C3177D00001CFEE /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCD6B871C3177D00001CFEE /* UserDefaults.swift */; };
 		6CCD6B891C317FED0001CFEE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCD6B851C313CB50001CFEE /* NotificationController.swift */; };
+		6CDF30E81C4388320020CB5F /* CollectionViewGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDF30E71C4388320020CB5F /* CollectionViewGridLayout.swift */; };
 		6CE4876B1C2C5383001D9E6D /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE4876A1C2C5383001D9E6D /* DateTests.swift */; };
 		6CE4876F1C2D15B3001D9E6D /* DayChartExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE4876E1C2D15B3001D9E6D /* DayChartExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -145,6 +146,7 @@
 		6CCD6B831C313B250001CFEE /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		6CCD6B851C313CB50001CFEE /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		6CCD6B871C3177D00001CFEE /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		6CDF30E71C4388320020CB5F /* CollectionViewGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewGridLayout.swift; sourceTree = "<group>"; };
 		6CE4876A1C2C5383001D9E6D /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		6CE4876E1C2D15B3001D9E6D /* DayChartExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayChartExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -258,6 +260,7 @@
 				6CC650DA1C0DFD8100CD7FCC /* AppDelegate.swift */,
 				6CC650DC1C0DFD8100CD7FCC /* MainViewController.swift */,
 				6C41BC821C2ED36200244226 /* CollectionViewPageFlowLayout.swift */,
+				6CDF30E71C4388320020CB5F /* CollectionViewGridLayout.swift */,
 				6C41BC841C2ED3C600244226 /* UIScrollViewAdditions.swift */,
 				6C5EB59A1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift */,
 				6CC650DE1C0DFD8100CD7FCC /* Main.storyboard */,
@@ -553,6 +556,7 @@
 			files = (
 				6C41BC831C2ED36200244226 /* CollectionViewPageFlowLayout.swift in Sources */,
 				6CC650DD1C0DFD8100CD7FCC /* MainViewController.swift in Sources */,
+				6CDF30E81C4388320020CB5F /* CollectionViewGridLayout.swift in Sources */,
 				6CCD6B891C317FED0001CFEE /* NotificationController.swift in Sources */,
 				6CC650DB1C0DFD8100CD7FCC /* AppDelegate.swift in Sources */,
 				6CE4876F1C2D15B3001D9E6D /* DayChartExtensions.swift in Sources */,

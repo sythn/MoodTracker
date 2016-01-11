@@ -15,6 +15,9 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var descriptionLabel: UILabel!
     
+    var pageLayout: CollectionViewPageFlowLayout!
+    var gridLayout: CollectionViewGridLayout!
+    
     var dataController = DataController()
     var daysInOrder: [Day] = []
 
@@ -25,6 +28,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         updateChart()
         setUpCollectionView()
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("doubleTap:"))
+        tapRecognizer.numberOfTapsRequired = 2
+        self.view.addGestureRecognizer(tapRecognizer)
     }
     
     func didRefreshData() {
@@ -39,6 +46,20 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    var isOnGridLayout = false
+    func doubleTap(recognizer: UITapGestureRecognizer) {
+        if isOnGridLayout {
+            self.collectionView.collectionViewLayout = self.pageLayout
+            self.isOnGridLayout = false
+        } else {
+            self.collectionView.collectionViewLayout = self.gridLayout
+            self.isOnGridLayout = true
+        }
+        
+        self.collectionView.reloadData()
+        self.scrollToLastPageAnimated(false)
     }
 
     @IBAction func goodButtonTapped() {
@@ -63,7 +84,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     private let TimeScaleCollectionViewReuseIdentifier = "TimeScaleCollectionView"
     func setUpCollectionView() {
-        self.collectionView.collectionViewLayout = CollectionViewPageFlowLayout()
+        self.pageLayout = CollectionViewPageFlowLayout()
+        self.gridLayout = CollectionViewGridLayout()
+        
+        self.collectionView.collectionViewLayout = self.pageLayout
         self.collectionView.registerClass(TimeScaleCollectionCell.self, forCellWithReuseIdentifier: TimeScaleCollectionViewReuseIdentifier)
     }
     
@@ -118,6 +142,14 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let timeScaleCell = cell as? TimeScaleCollectionCell {
             let day = self.daysInOrder[indexPath.row]
             timeScaleCell.day = day
+            
+            if self.isOnGridLayout {
+                timeScaleCell.timeScaleView.insideScale = 0.6
+                timeScaleCell.timeScaleView.minScale = 0.7
+            } else {
+                timeScaleCell.timeScaleView.insideScale = 0.3
+                timeScaleCell.timeScaleView.minScale = 0.5
+            }
         }
     }
 }

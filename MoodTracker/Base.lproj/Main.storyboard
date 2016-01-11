@@ -73,7 +73,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EhX-2S-u6b">
-                                <rect key="frame" x="0.0" y="218" width="600" height="336"/>
+                                <rect key="frame" x="0.0" y="218" width="600" height="382"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="h4S-Io-eEa">
                                     <size key="itemSize" width="50" height="50"/>
@@ -96,7 +96,7 @@
                             <constraint firstAttribute="trailing" secondItem="EhX-2S-u6b" secondAttribute="trailing" id="FXl-5z-cWv"/>
                             <constraint firstItem="28P-El-U6a" firstAttribute="leading" secondItem="3n4-V1-2Ry" secondAttribute="trailing" constant="24" id="IeY-EY-AtQ"/>
                             <constraint firstItem="3n4-V1-2Ry" firstAttribute="leading" secondItem="fGO-Hn-3yy" secondAttribute="trailing" constant="24" id="JLy-od-nqP"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EhX-2S-u6b" secondAttribute="bottom" constant="46" id="K8S-Lr-HfX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EhX-2S-u6b" secondAttribute="bottom" id="K8S-Lr-HfX"/>
                             <constraint firstItem="EhX-2S-u6b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="P0F-0r-EmW"/>
                             <constraint firstItem="3n4-V1-2Ry" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YqT-10-pzr"/>
                             <constraint firstItem="28P-El-U6a" firstAttribute="top" secondItem="U9g-Ma-SFr" secondAttribute="bottom" constant="24" id="gDg-rL-Xe9"/>
