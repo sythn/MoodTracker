@@ -10,19 +10,19 @@ import Foundation
 
 public final class MoodStamp: NSObject, NSCoding {
     public var mood: Mood
-    public var timestamp: NSDate
+    public var timestamp: Date
     
-    public init(mood: Mood, timestamp: NSDate = NSDate()) {
+    public init(mood: Mood, timestamp: Date = Date()) {
         self.mood = mood
         self.timestamp = timestamp
         super.init()
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        guard let mood = Mood(rawValue: aDecoder.decodeDoubleForKey(Keys.Mood)),
-            let timestamp = aDecoder.decodeObjectForKey(Keys.Timestamp) as? NSDate else {
-                self.mood = .Good
-                self.timestamp = NSDate()
+        guard let mood = Mood(rawValue: aDecoder.decodeDouble(forKey: Keys.Mood)),
+            let timestamp = aDecoder.decodeObject(forKey: Keys.Timestamp) as? Date else {
+                self.mood = .good
+                self.timestamp = Date()
                 super.init()
                 return nil
         }
@@ -32,12 +32,12 @@ public final class MoodStamp: NSObject, NSCoding {
         super.init()
     }
     
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeDouble(self.mood.rawValue, forKey: Keys.Mood)
-        aCoder.encodeObject(self.timestamp, forKey: Keys.Timestamp)
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.mood.rawValue, forKey: Keys.Mood)
+        aCoder.encode(self.timestamp, forKey: Keys.Timestamp)
     }
     
-    public override func isEqual(object: AnyObject?) -> Bool {
+    public override func isEqual(_ object: AnyObject?) -> Bool {
         guard let otherStamp = object as? MoodStamp else {
             return false
         }

@@ -45,8 +45,8 @@ public class TimeScaleView: UIView {
     
     func setUp() {
         self.layer.addSublayer(self.chartLayer)
-        self.layer.backgroundColor = UIColor.clearColor().CGColor
-        self.backgroundColor = UIColor.clearColor()
+        self.layer.backgroundColor = UIColor.clear().cgColor
+        self.backgroundColor = UIColor.clear()
         
         let ovalRect = self.bounds.maxSquareRectInside
         fillHoleInTheMiddleWithRect(ovalRect.insetBy(dx: 10, dy: 10))
@@ -73,13 +73,13 @@ public class TimeScaleView: UIView {
             let radiusScale = point.scale == 0 ? 0 : point.scale * (1 - minScale) + minScale
             
             let path = UIBezierPath(arcCenter: center, radius: center.x * radiusScale, startAngle: currentAngle.angleInRadian(), endAngle: currentAngle.angleInRadian() + angle.angleInRadian(), clockwise: true)
-            path.addLineToPoint(center)
+            path.addLine(to: center)
             
             currentAngle += angle
             
             let slice = CAShapeLayer()
-            slice.path = path.CGPath
-            slice.fillColor = point.color.CGColor
+            slice.path = path.cgPath
+            slice.fillColor = point.color.cgColor
     
             slice.position = ovalRect.origin
             
@@ -94,34 +94,34 @@ public class TimeScaleView: UIView {
     }
     
     var circleLayer: CAShapeLayer!
-    func fillHoleInTheMiddleWithRect(rect: CGRect) {
+    func fillHoleInTheMiddleWithRect(_ rect: CGRect) {
         let center = rect.size.CGPointValue / 2
         circleLayer = CAShapeLayer()
         let circlePath = UIBezierPath(arcCenter: center, radius: center.x * insideScale, startAngle: 0, endAngle: CGFloat(360).angleInRadian(), clockwise: true)
-        circleLayer.path = circlePath.CGPath
-        circleLayer.fillColor = UIColor.blueColor().CGColor
+        circleLayer.path = circlePath.cgPath
+        circleLayer.fillColor = UIColor.blue().cgColor
         circleLayer.position = rect.origin
         
         self.layer.addSublayer(circleLayer)
     }
     
-    func resetCircleLayerWithRect(rect: CGRect) {
+    func resetCircleLayerWithRect(_ rect: CGRect) {
         let center = rect.size.CGPointValue / 2
         let circlePath = UIBezierPath(arcCenter: center, radius: center.x * (insideScale - 0.03), startAngle: 0, endAngle: CGFloat(360).angleInRadian(), clockwise: true)
-        circleLayer.path = circlePath.CGPath
+        circleLayer.path = circlePath.cgPath
         circleLayer.position = rect.origin
         
         if let color = circleColor {
-            circleLayer.fillColor = color.CGColor
+            circleLayer.fillColor = color.cgColor
         }
     }
     
-    func punchAHoleInTheMiddleWithRect(rect: CGRect) {
+    func punchAHoleInTheMiddleWithRect(_ rect: CGRect) {
         let center = rect.size.CGPointValue / 2
         let midClip = CAShapeLayer()
         let clipPath = UIBezierPath(arcCenter: center, radius: center.x * insideScale, startAngle: 0, endAngle: CGFloat(360).angleInRadian(), clockwise: true)
-        clipPath.appendPath(UIBezierPath(rect: layer.bounds))
-        midClip.path = clipPath.CGPath
+        clipPath.append(UIBezierPath(rect: layer.bounds))
+        midClip.path = clipPath.cgPath
         midClip.position = rect.origin
         midClip.fillRule = kCAFillRuleEvenOdd
         

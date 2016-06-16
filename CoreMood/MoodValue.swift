@@ -19,6 +19,10 @@ public struct MoodValue: CustomStringConvertible {
         return Double(values.count) / (60 / 5)
     }
     
+    public var _scale: Double {
+        return Double(values.count) / (60 / 5)
+    }
+    
     public var dayScale: Double {
         return Double(values.count) / (60 * 24 / 5)
     }

@@ -9,13 +9,13 @@
 import Foundation
 
 protocol DateConvertible {
-    init(date: NSDate)
-    var date: NSDate? { get }
+    init(date: Date)
+    var date: Date? { get }
 }
 
 protocol DateComponentsConvertible {
-    init?(dateComponents: NSDateComponents)
-    var dateComponents: NSDateComponents { get }
+    init?(dateComponents: DateComponents)
+    var dateComponents: DateComponents { get }
 }
 
 public struct DayDate: DateConvertible, DateComponentsConvertible {
@@ -30,38 +30,38 @@ public struct DayDate: DateConvertible, DateComponentsConvertible {
     }
     
     public init() {
-        self.init(date: NSDate())
+        self.init(date: Date())
     }
     
-    public init(dateComponents: NSDateComponents) {
-        self.day = dateComponents.day
-        self.month = dateComponents.month
-        self.year = dateComponents.year
+    public init(dateComponents: DateComponents) {
+        self.day = dateComponents.day!
+        self.month = dateComponents.month!
+        self.year = dateComponents.year!
     }
     
-    public init(date: NSDate) {
-        let components = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: date)
+    public init(date: Date) {
+        let components = Calendar.current().components([.day, .month, .year], from: date)
         self.init(dateComponents: components)
     }
     
-    public func dateWithDaysAfter(daysAfter: Int) -> DayDate? {
+    public func dateWithDaysAfter(_ daysAfter: Int) -> DayDate? {
         if let date = self.date,
-            let newDate = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: daysAfter, toDate: date, options: []) {
+            let newDate = Calendar.current().date(byAdding: .day, value: daysAfter, to: date, options: []) {
                 return DayDate(date: newDate)
         }
         return nil
     }
     
-    public var dateComponents: NSDateComponents {
-        let components = NSDateComponents()
+    public var dateComponents: DateComponents {
+        var components = DateComponents()
         components.day = day
         components.month = month
         components.year = year
         return components
     }
     
-    public var date: NSDate? {
-        return NSCalendar.currentCalendar().dateFromComponents(self.dateComponents)
+    public var date: Date? {
+        return Calendar.current().date(from: self.dateComponents)
     }
 }
 

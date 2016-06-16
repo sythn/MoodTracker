@@ -10,9 +10,9 @@ import Foundation
 
 public struct DataControllerUtilities {
     static func daysFromUserDefaults() -> [DayDate: Day]? {
-        let data = NSUserDefaults.standardUserDefaults().objectForKey("SampleDays") as? NSData
-        if let data = data where data.length > 0,
-            let days = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? [Day] {
+        let data = Foundation.UserDefaults.standard().object(forKey: "SampleDays") as? Data
+        if let data = data where data.count > 0,
+            let days = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Day] {
                 var dayDict = [DayDate: Day]()
                 for day in days {
                     dayDict[day.date] = day
@@ -41,10 +41,10 @@ public class DataController: NSObject {
         
         super.init()
         
-        NSUserDefaults.standardUserDefaults().addObserver(self, forKeyPath: "SampleDays", options: NSKeyValueObservingOptions.New, context: nil)
+        Foundation.UserDefaults.standard().addObserver(self, forKeyPath: "SampleDays", options: NSKeyValueObservingOptions.new, context: nil)
     }
     
-    public override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: AnyObject?, change: [NSKeyValueChangeKey : AnyObject]?, context: UnsafeMutablePointer<Void>?) {
         if let days = DataControllerUtilities.daysFromUserDefaults() {
             self.days = days
             self.delegate?.didRefreshData()
@@ -61,7 +61,7 @@ public class DataController: NSObject {
         return today
     }
     
-    public func addMood(mood: Mood) -> Bool {
+    public func addMood(_ mood: Mood) -> Bool {
         let didAdd = self.today.addMood(mood)
         persistDays()
         return didAdd
@@ -71,7 +71,7 @@ public class DataController: NSObject {
         let days = self.days.map { _, day in
             return day
         }
-        let data = NSKeyedArchiver.archivedDataWithRootObject(days)
-        NSUserDefaults.standardUserDefaults().setObject(data, forKey: "SampleDays")
+        let data = NSKeyedArchiver.archivedData(withRootObject: days)
+        Foundation.UserDefaults.standard().set(data, forKey: "SampleDays")
     }
 }

@@ -29,7 +29,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         updateChart()
         setUpCollectionView()
         
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("doubleTap:"))
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.doubleTap(_:)))
         tapRecognizer.numberOfTapsRequired = 2
         self.view.addGestureRecognizer(tapRecognizer)
     }
@@ -38,7 +38,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         updateChart()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         scrollToLastPageAnimated(animated)
         
         super.viewDidAppear(animated)
@@ -49,7 +49,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     var isOnGridLayout = false
-    func doubleTap(recognizer: UITapGestureRecognizer) {
+    func doubleTap(_ recognizer: UITapGestureRecognizer) {
         if isOnGridLayout {
             self.collectionView.collectionViewLayout = self.pageLayout
             self.isOnGridLayout = false
@@ -63,22 +63,22 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
 
     @IBAction func goodButtonTapped() {
-        tryAddMood(.Good)
+        tryAddMood(.good)
     }
     
     @IBAction func neutralButtonTapped() {
-        tryAddMood(.Neutral)
+        tryAddMood(.neutral)
     }
     
     @IBAction func badButtonTapped() {
-        tryAddMood(.Bad)
+        tryAddMood(.bad)
     }
     
-    func tryAddMood(mood: Mood) {
+    func tryAddMood(_ mood: Mood) {
         let didAdd = self.dataController.addMood(mood)
         updateChart()
         
-        let moodMessage = mood == .Good ? ":)" : ":/"
+        let moodMessage = mood == .good ? ":)" : ":/"
         displayMessageOrTimer(didAdd ? moodMessage : nil)
     }
     
@@ -88,12 +88,12 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.gridLayout = CollectionViewGridLayout()
         
         self.collectionView.collectionViewLayout = self.pageLayout
-        self.collectionView.registerClass(TimeScaleCollectionCell.self, forCellWithReuseIdentifier: TimeScaleCollectionViewReuseIdentifier)
+        self.collectionView.register(TimeScaleCollectionCell.self, forCellWithReuseIdentifier: TimeScaleCollectionViewReuseIdentifier)
     }
     
     func updateDaysInOrder() {
         var days = Array(self.dataController.days.values)
-        days.sortInPlace { first, second in
+        days.sort { first, second in
             return first.date < second.date
         }
         self.daysInOrder = days
@@ -106,41 +106,41 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         scrollToLastPageAnimated(true)
     }
     
-    func scrollToLastPageAnimated(animated: Bool) {
+    func scrollToLastPageAnimated(_ animated: Bool) {
         let lastPage = self.collectionView.pageCount - 1
         self.collectionView.setPageIndex(lastPage, animated: animated)
     }
     
-    func displayMessageOrTimer(message: String?) {
+    func displayMessageOrTimer(_ message: String?) {
         var timeIntervalString = String(ceil(self.dataController.today.timeIntervalUntilNextMoodAddition))
         timeIntervalString = "\(timeIntervalString) until next vote"
         displayMessage(message ?? timeIntervalString)
     }
     
-    func displayMessage(message: String) {
+    func displayMessage(_ message: String) {
         self.descriptionLabel.text = message
         
-        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC) * 2)
-        dispatch_after(dispatchTime, dispatch_get_main_queue()) {
+        let dispatchTime = DispatchTime.now() + Double(Int64(NSEC_PER_SEC) * 2) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.after(when: dispatchTime) {
             self.descriptionLabel.text = "How are you feeling?"
         }
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.daysInOrder.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCellWithReuseIdentifier(TimeScaleCollectionViewReuseIdentifier, forIndexPath: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: TimeScaleCollectionViewReuseIdentifier, for: indexPath)
     }
     
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let timeScaleCell = cell as? TimeScaleCollectionCell {
-            let day = self.daysInOrder[indexPath.row]
+            let day = self.daysInOrder[(indexPath as NSIndexPath).row]
             timeScaleCell.day = day
             
             if self.isOnGridLayout {

@@ -55,10 +55,10 @@ class CollectionViewPageFlowLayout: UICollectionViewFlowLayout {
     
     // MARK: - Override layout
     
-    override func prepareLayout() {
+    override func prepare() {
         if let collectionView = self.collectionView {
-            collectionView.pagingEnabled = true
-            self.scrollDirection = .Horizontal
+            collectionView.isPagingEnabled = true
+            self.scrollDirection = .horizontal
             
             /*  Get the size of the collection view and fit the items into it to make them
              *  appear as _pages_.
@@ -68,20 +68,20 @@ class CollectionViewPageFlowLayout: UICollectionViewFlowLayout {
         }
     }
     
-    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         resetItemSizeWithViewSize(newBounds.size)
-        return !CGRectEqualToRect(self.collectionView!.bounds, newBounds)
+        return !self.collectionView!.bounds.equalTo(newBounds)
     }
     
     // MARK: - Content offset presistance
     
-    override func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint) -> CGPoint {
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
         
         /*  Needed to keep the collectionView on the same _page_ when it's bounds change
          */
         if let collectionView = self.collectionView {
-            if let indexPath = collectionView.indexPathsForVisibleItems().first as NSIndexPath? {
-                let attributes = self.layoutAttributesForItemAtIndexPath(indexPath)!
+            if let indexPath = collectionView.indexPathsForVisibleItems().first as IndexPath? {
+                let attributes = self.layoutAttributesForItem(at: indexPath)!
                 var origin = attributes.frame.origin
                 origin.x -= self.minimumLineSpacing / 2
                 return origin
@@ -92,7 +92,7 @@ class CollectionViewPageFlowLayout: UICollectionViewFlowLayout {
     
     // MARK: - Private functions
     
-    private func resetItemSizeWithViewSize(viewSize: CGSize) {
+    private func resetItemSizeWithViewSize(_ viewSize: CGSize) {
         let itemSize = CGSize(width: viewSize.width - minimumLineSpacing, height: viewSize.height)
         self.itemSize = itemSize
     }

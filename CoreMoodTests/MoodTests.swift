@@ -20,14 +20,14 @@ class MoodTests: XCTestCase {
     }
 
     func testValues() {
-        let good = Mood.Good
-        XCTAssert(good == .Good)
+        let good = Mood.good
+        XCTAssert(good == .good)
         
-        let bad = Mood.Bad
-        XCTAssert(bad == .Bad)
+        let bad = Mood.bad
+        XCTAssert(bad == .bad)
         
-        let neutral = Mood.Neutral
-        XCTAssert(neutral == .Neutral)
+        let neutral = Mood.neutral
+        XCTAssert(neutral == .neutral)
     }
 
 }

@@ -20,19 +20,19 @@ class DateTests: XCTestCase {
     }
     
     func testNSDateConverting() {
-        let date = NSDate()
+        let date = Date()
         let dayDate = DayDate(date: date)
         
         let dateBack = dayDate.date
 
         XCTAssertNotNil(dateBack, "Day should not be nil: \(dayDate)")
         if let dateBack = dateBack {
-            XCTAssertTrue(NSCalendar.currentCalendar().isDate(date, inSameDayAsDate: dateBack), "Dates should be in same day")
+            XCTAssertTrue(Calendar.current().isDate(date, inSameDayAs: dateBack), "Dates should be in same day")
         }
     }
     
     func testNSDateComponentsConverting() {
-        let components = NSDateComponents()
+        var components = DateComponents()
         components.day = 17
         components.month = 7
         components.year = 3434
@@ -46,12 +46,12 @@ class DateTests: XCTestCase {
         XCTAssertEqual(components.month, componentsBack.month, "Months should be equal")
         XCTAssertEqual(components.year, componentsBack.year, "Years should be equal")
         
-        let date1 = NSCalendar.currentCalendar().dateFromComponents(components)
-        let date2 = NSCalendar.currentCalendar().dateFromComponents(componentsBack)
+        let date1 = Calendar.current().date(from: components)
+        let date2 = Calendar.current().date(from: componentsBack)
         
         XCTAssertNotNil(date1 ?? date2, "Dates should not be nil")
         if let date1 = date1, let date2 = date2 {
-            XCTAssertTrue(NSCalendar.currentCalendar().isDate(date1, inSameDayAsDate: date2), "Dates should be in same day")
+            XCTAssertTrue(Calendar.current().isDate(date1, inSameDayAs: date2), "Dates should be in same day")
         }
     }
     

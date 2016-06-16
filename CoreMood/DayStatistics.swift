@@ -44,9 +44,9 @@ public struct DayStatistics {
     
 }
 
-extension NSDate {
+extension Date {
     var hour: Int {
-        return NSCalendar.currentCalendar().component(.Hour, fromDate: self)
+        return Calendar.current().component(.hour, from: self)
     }
 }
 

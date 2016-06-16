@@ -22,7 +22,7 @@ extension MoodValue: TimeScaleDataPoint {
     }
     
     public var scale: CGFloat {
-        return CGFloat(min(self.scale * 2, 1))
+        return CGFloat(min(self._scale * 2, 1))
     }
     
     public var color: UIColor {
@@ -31,7 +31,7 @@ extension MoodValue: TimeScaleDataPoint {
 }
 
 extension UIColor: Interpolatable {
-    public func interpolateLinearlyTo(other: UIColor, through: Double) -> Self {
+    public func interpolateLinearlyTo(_ other: UIColor, through: Double) -> Self {
 
         var hue1: CGFloat = 0
         var saturation1: CGFloat = 0
@@ -73,7 +73,7 @@ extension Day {
 }
 
 extension TimeScaleView {
-    func setDay(day: Day) {
+    func setDay(_ day: Day) {
         self.circleColor = day.circleColor
         self.dataPoints = day.timeScaleDataPoints
     }

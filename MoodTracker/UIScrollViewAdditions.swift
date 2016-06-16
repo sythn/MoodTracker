@@ -9,15 +9,15 @@
 import UIKit
 
 public extension UIScrollView {
-    public func setTopInset(inset: CGFloat) {
+    public func setTopInset(_ inset: CGFloat) {
         setInset(inset, top: true)
     }
     
-    public func setBottomInset(inset: CGFloat) {
+    public func setBottomInset(_ inset: CGFloat) {
         setInset(inset, top: false)
     }
     
-    func setInset(inset: CGFloat, top: Bool) {
+    func setInset(_ inset: CGFloat, top: Bool) {
         var contentInsets = contentInset
         var scrollInsets = scrollIndicatorInsets
         
@@ -33,18 +33,18 @@ public extension UIScrollView {
         scrollIndicatorInsets = scrollInsets
     }
     
-    public func scrollToTop(animated: Bool = false) {
+    public func scrollToTop(_ animated: Bool = false) {
         scrollRectToVisible(CGRect(x: 0, y: 0, width: 2, height: 2), animated: animated)
     }
     
     public var pageCount: Int {
-        let width = CGRectGetWidth(bounds)
+        let width = bounds.width
         return Int(ceil(contentSize.width / width))
     }
     
     public var pageIndex: Int {
         get {
-            let width = CGRectGetWidth(bounds)
+            let width = bounds.width
             let index = round(contentOffset.x / width)
             return Int(index)
         }
@@ -53,8 +53,8 @@ public extension UIScrollView {
         }
     }
     
-    public func setPageIndex(pageIndex: Int, animated: Bool) {
-        let width = CGRectGetWidth(bounds)
+    public func setPageIndex(_ pageIndex: Int, animated: Bool) {
+        let width = bounds.width
         var offset = contentOffset
         offset.x = CGFloat(pageIndex) * width
         setContentOffset(offset, animated: animated)

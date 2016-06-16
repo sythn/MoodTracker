@@ -21,14 +21,14 @@ public class AppConfiguration {
         get {
             registerDefaults()
             
-            return applicationUserDefaults.boolForKey(DefaultsKeys.FirstLaunch)
+            return applicationUserDefaults.bool(forKey: DefaultsKeys.FirstLaunch)
         }
         set {
-            applicationUserDefaults.setBool(newValue, forKey: DefaultsKeys.FirstLaunch)
+            applicationUserDefaults.set(newValue, forKey: DefaultsKeys.FirstLaunch)
         }
     }
     
-    public func runHandlerOnFirstLaunch(firstLaunchHandler: Void -> Void) {
+    public func runHandlerOnFirstLaunch(_ firstLaunchHandler: (Void) -> Void) {
         if isFirstLaunch {
             isFirstLaunch = false
             
@@ -47,8 +47,8 @@ public class AppConfiguration {
         static let primary = "group.tr.com.Brokoli.MoodTracker"
     }
     
-    var applicationUserDefaults: NSUserDefaults {
-        return NSUserDefaults(suiteName: ApplicationGroups.primary)!
+    var applicationUserDefaults: Foundation.UserDefaults {
+        return Foundation.UserDefaults(suiteName: ApplicationGroups.primary)!
     }
     
     private func registerDefaults() {
@@ -65,6 +65,6 @@ public class AppConfiguration {
             ]
         #endif
         
-        applicationUserDefaults.registerDefaults(defaultOptions)
+        applicationUserDefaults.register(defaultOptions)
     }
 }

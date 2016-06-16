@@ -13,9 +13,9 @@ class MoodStatisticsTests: XCTestCase {
     
     var day: Day!
     
-    func sampleDateForHour(hour: Int) -> NSDate {
+    func sampleDateForHour(_ hour: Int) -> Date {
         let trueHour = max(min(hour, 23), 0)
-        return NSCalendar.currentCalendar().dateBySettingUnit(.Hour, value: trueHour, ofDate: NSDate(), options: [])!
+        return Calendar.current().date(bySettingUnit: .hour, value: trueHour, of: Date(), options: [])!
     }
 
     override func setUp() {
@@ -24,9 +24,9 @@ class MoodStatisticsTests: XCTestCase {
         var stamps = [MoodStamp]()
         
         for hour in 0..<24 {
-            let good = MoodStamp(mood: .Good, timestamp: self.sampleDateForHour(hour))
-            let bad = MoodStamp(mood: .Bad, timestamp: self.sampleDateForHour(hour))
-            stamps.appendContentsOf([good, bad])
+            let good = MoodStamp(mood: .good, timestamp: self.sampleDateForHour(hour))
+            let bad = MoodStamp(mood: .bad, timestamp: self.sampleDateForHour(hour))
+            stamps.append(contentsOf: [good, bad])
         }
         
         day = Day(moodStamps: stamps)
@@ -45,7 +45,7 @@ class MoodStatisticsTests: XCTestCase {
     }
     
     func testSingleValueStatistics() {
-        let statistics = Day(moodStamps: [MoodStamp(mood: .Neutral)]).statistics
+        let statistics = Day(moodStamps: [MoodStamp(mood: .neutral)]).statistics
         
         XCTAssertEqual(statistics.moodValue.scale, 1/12)
         XCTAssertEqual(statistics.moodValue.percentage, 1/2, "Mood value should be all \"good\"")
@@ -72,7 +72,7 @@ class MoodStatisticsTests: XCTestCase {
     
     func testStatisticsPerformance() {
         
-        self.measureBlock {
+        self.measure {
             self.day.statistics
         }
         

@@ -14,7 +14,7 @@ class TimeScaleCollectionCell: UICollectionViewCell {
     var timeScaleView = TimeScaleView()
     var dateLabel = UILabel()
     
-    var dateFormatter = NSDateFormatter()
+    var dateFormatter = DateFormatter()
     
     var day: Day? {
         didSet {
@@ -26,7 +26,7 @@ class TimeScaleCollectionCell: UICollectionViewCell {
             }
             
             if let date = day?.date.date {
-                self.dateLabel.text = self.dateFormatter.stringFromDate(date)
+                self.dateLabel.text = self.dateFormatter.string(from: date)
                 self.dateLabel.alpha = 1
             } else {
                 self.dateLabel.alpha = 0
@@ -57,15 +57,15 @@ class TimeScaleCollectionCell: UICollectionViewCell {
         self.timeScaleView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.timeScaleView)
         
-        self.dateLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
-        self.dateLabel.textAlignment = .Center
+        self.dateLabel.font = UIFont.preferredFont(forTextStyle: UIFontTextStyleSubheadline)
+        self.dateLabel.textAlignment = .center
         self.dateLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.dateLabel)
         
-        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[scaleView]-|", options: [], metrics: nil, views: ["scaleView": self.timeScaleView]))
+        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[scaleView]-|", options: [], metrics: nil, views: ["scaleView": self.timeScaleView]))
         
-        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[date]-|", options: [], metrics: nil, views: ["date": self.dateLabel]))
+        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[date]-|", options: [], metrics: nil, views: ["date": self.dateLabel]))
         
-        self.contentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-[date]-[scaleView]-|", options: [], metrics: nil, views: ["date": self.dateLabel, "scaleView": self.timeScaleView]))
+        self.contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[date]-[scaleView]-|", options: [], metrics: nil, views: ["date": self.dateLabel, "scaleView": self.timeScaleView]))
     }
 }

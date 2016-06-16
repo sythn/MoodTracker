@@ -20,30 +20,30 @@ class MoodStampTests: XCTestCase {
     }
     
     func testValues() {
-        let now = NSDate()
-        let stamp = MoodStamp(mood: .Bad, timestamp: now)
+        let now = Date()
+        let stamp = MoodStamp(mood: .bad, timestamp: now)
         
-        XCTAssert(stamp.mood == .Bad)
+        XCTAssert(stamp.mood == .bad)
         XCTAssert(stamp.timestamp == now)
     }
     
     func testDefaultValues() {
-        let stamp = MoodStamp(mood: .Bad)
+        let stamp = MoodStamp(mood: .bad)
         
-        XCTAssert(stamp.mood == .Bad)
+        XCTAssert(stamp.mood == .bad)
         XCTAssertEqualWithAccuracy(stamp.timestamp.timeIntervalSinceNow, 0, accuracy: 1, "Timestamp should be accurate enough")
     }
     
     func testEquality() {
-        let now = NSDate()
+        let now = Date()
         
-        let control = MoodStamp(mood: .Bad, timestamp: now)
+        let control = MoodStamp(mood: .bad, timestamp: now)
         
-        let stamp1 = MoodStamp(mood: .Bad, timestamp: now)
-        let stamp2 = MoodStamp(mood: .Good, timestamp: now)
-        let stamp3 = MoodStamp(mood: .Good)
-        let stamp4 = MoodStamp(mood: .Bad)
-        let stamp5 = MoodStamp(mood: .Neutral)
+        let stamp1 = MoodStamp(mood: .bad, timestamp: now)
+        let stamp2 = MoodStamp(mood: .good, timestamp: now)
+        let stamp3 = MoodStamp(mood: .good)
+        let stamp4 = MoodStamp(mood: .bad)
+        let stamp5 = MoodStamp(mood: .neutral)
         
         XCTAssertEqual(control, stamp1)
         XCTAssertNotEqual(control, stamp2)
@@ -53,13 +53,13 @@ class MoodStampTests: XCTestCase {
     }
     
     func testEncoding() {
-        let stamp = MoodStamp(mood: .Bad)
+        let stamp = MoodStamp(mood: .bad)
         
-        let stampData = NSKeyedArchiver.archivedDataWithRootObject(stamp)
+        let stampData = NSKeyedArchiver.archivedData(withRootObject: stamp)
         XCTAssertNotNil(stampData)
-        XCTAssertGreaterThan(stampData.length, 0, "Encoded data must contain data")
+        XCTAssertGreaterThan(stampData.count, 0, "Encoded data must contain data")
         
-        let decodedStamp = NSKeyedUnarchiver.unarchiveObjectWithData(stampData) as? MoodStamp
+        let decodedStamp = NSKeyedUnarchiver.unarchiveObject(with: stampData) as? MoodStamp
         XCTAssertNotNil(decodedStamp)
         
         if let decodedStamp = decodedStamp {

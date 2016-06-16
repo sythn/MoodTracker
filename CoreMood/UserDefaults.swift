@@ -11,21 +11,21 @@ import UIKit
 public struct UserDefaults {
     public static var notificationHourStart: Int {
         get {
-            return AppConfiguration.sharedConfiguration.applicationUserDefaults.integerForKey(AppConfiguration.DefaultsKeys.NotificationHoursStart)
+            return AppConfiguration.sharedConfiguration.applicationUserDefaults.integer(forKey: AppConfiguration.DefaultsKeys.NotificationHoursStart)
         }
         
         set(start){
-            AppConfiguration.sharedConfiguration.applicationUserDefaults.setInteger(start, forKey: AppConfiguration.DefaultsKeys.NotificationHoursStart)
+            AppConfiguration.sharedConfiguration.applicationUserDefaults.set(start, forKey: AppConfiguration.DefaultsKeys.NotificationHoursStart)
         }
     }
     
     public static var notificationHourEnd: Int {
         get {
-            return AppConfiguration.sharedConfiguration.applicationUserDefaults.integerForKey(AppConfiguration.DefaultsKeys.NotificationHoursEnd)
+            return AppConfiguration.sharedConfiguration.applicationUserDefaults.integer(forKey: AppConfiguration.DefaultsKeys.NotificationHoursEnd)
         }
         
         set(end) {
-            AppConfiguration.sharedConfiguration.applicationUserDefaults.setInteger(end, forKey: AppConfiguration.DefaultsKeys.NotificationHoursEnd)
+            AppConfiguration.sharedConfiguration.applicationUserDefaults.set(end, forKey: AppConfiguration.DefaultsKeys.NotificationHoursEnd)
         }
     }
 }

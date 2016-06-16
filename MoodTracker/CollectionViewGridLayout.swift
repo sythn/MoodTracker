@@ -12,7 +12,7 @@ class CollectionViewGridLayout: UICollectionViewFlowLayout {
     var aspectRatio: CGFloat = 1
     var numberOfColumns: Int = 3
     
-    override func prepareLayout() {
+    override func prepare() {
         if let collectionView = self.collectionView {
             /*  Get the size of the collection view and fit the items into it to make them
             *  appear as _pages_.
@@ -22,12 +22,12 @@ class CollectionViewGridLayout: UICollectionViewFlowLayout {
         }
     }
     
-    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         resetItemSizeWithViewSize(newBounds.size)
         return self.collectionView!.bounds != newBounds
     }
     
-    private func resetItemSizeWithViewSize(viewSize: CGSize) {
+    private func resetItemSizeWithViewSize(_ viewSize: CGSize) {
         let marginTotal = self.minimumInteritemSpacing * CGFloat(self.numberOfColumns - 1)
         let rowWidth = viewSize.width - marginTotal
         

@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol Interpolatable {
-    func interpolateLinearlyTo(other: Self, through: Double) -> Self
+    func interpolateLinearlyTo(_ other: Self, through: Double) -> Self
 }
 
 public struct Interpolation<Item where Item: Interpolatable> {
@@ -34,7 +34,7 @@ public struct Interpolation<Item where Item: Interpolatable> {
     }
     
     public init(_ _values: [Double: Item]) {
-        let sortedPoints = Array(_values.keys).sort({ $0 < $1 })
+        let sortedPoints = Array(_values.keys).sorted(isOrderedBefore: { $0 < $1 })
         var values = [Item]()
         
         for point in sortedPoints {
@@ -54,7 +54,7 @@ public struct Interpolation<Item where Item: Interpolatable> {
         }
     }
     
-    private func interpolatedValueForPoint(point: Double) -> Item {
+    private func interpolatedValueForPoint(_ point: Double) -> Item {
         if point <= 0 {
             return self.values[0]
         } else if point >= self.points.last! {
@@ -64,7 +64,7 @@ public struct Interpolation<Item where Item: Interpolatable> {
         var floorPoint = points.first!
         var floorIndex = 0
         
-        for (index, currentPoint) in points.enumerate() {
+        for (index, currentPoint) in points.enumerated() {
             if currentPoint > point {
                 break
             }

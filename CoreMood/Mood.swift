@@ -9,19 +9,19 @@
 import Foundation
 
 public enum Mood: Double, CustomStringConvertible {
-    case Good = 1
-    case Bad = 0
-    case Neutral = 0.5
+    case good = 1
+    case bad = 0
+    case neutral = 0.5
     
     public var description: String {
         switch self {
-        case .Good:
+        case .good:
             return "Good"
             
-        case .Neutral:
+        case .neutral:
             return "Neutral"
             
-        case .Bad:
+        case .bad:
             return "Bad"
         }
     }

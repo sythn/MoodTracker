@@ -27,12 +27,12 @@ extension TimeScaleView {
         
         self.dataPoints = [
             SampleTimeScaleDataPoint(scale: 0, value: 1, color: green1),
-            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.greenColor()),
-            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.purpleColor()),
-            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.yellowColor()),
-            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.blueColor()),
-            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.greenColor()),
-            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.purpleColor()),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.green()),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.purple()),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.yellow()),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.blue()),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.green()),
+            SampleTimeScaleDataPoint(scale: 0, value: 1, color: UIColor.purple()),
             SampleTimeScaleDataPoint(scale: 1/12, value: 1, color: red1),
             SampleTimeScaleDataPoint(scale: 3/12, value: 1, color: red1),
             SampleTimeScaleDataPoint(scale: 5/12, value: 1, color: yellow1),

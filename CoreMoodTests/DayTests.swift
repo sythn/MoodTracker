@@ -15,11 +15,11 @@ class DayTests: XCTestCase {
         let good = arc4random_uniform(2) == 0
         let timeInterval = Double(-60 * Int(arc4random_uniform(10)))
         
-        let timestamp = NSDate(timeIntervalSinceNow: timeInterval)
-        return MoodStamp(mood: good ? .Good : .Bad, timestamp: timestamp)
+        let timestamp = Date(timeIntervalSinceNow: timeInterval)
+        return MoodStamp(mood: good ? .good : .bad, timestamp: timestamp)
     }
     
-    func sampleMoodArrayWithCount(count: Int) -> [MoodStamp] {
+    func sampleMoodArrayWithCount(_ count: Int) -> [MoodStamp] {
         if count < 1 {
             return []
         }
@@ -54,10 +54,10 @@ class DayTests: XCTestCase {
         let stampArray = self.sampleMoodArrayWithCount(2)
         let day = Day(moodStamps: stampArray)
         
-        let dayData = NSKeyedArchiver.archivedDataWithRootObject(day)
-        XCTAssertGreaterThan(dayData.length, 0, "Encoded data should not be empty")
+        let dayData = NSKeyedArchiver.archivedData(withRootObject: day)
+        XCTAssertGreaterThan(dayData.count, 0, "Encoded data should not be empty")
         
-        let decodedDay = NSKeyedUnarchiver.unarchiveObjectWithData(dayData) as? Day
+        let decodedDay = NSKeyedUnarchiver.unarchiveObject(with: dayData) as? Day
         XCTAssertNotNil(decodedDay, "Decoded day should not be nil")
         
         if let decodedDay = decodedDay {
@@ -70,7 +70,7 @@ class DayTests: XCTestCase {
         let day = Day()
         
         for i in 0..<1 {
-            let mood = i%2 == 0 ? Mood.Good : Mood.Bad
+            let mood = i%2 == 0 ? Mood.good : Mood.bad
             day.addMood(mood)
             
             XCTAssertEqual(day.moodStamps.count, i+1, "Mood (\(i)) should be added")
@@ -81,22 +81,22 @@ class DayTests: XCTestCase {
     }
     
     func testMoodSorting() {
-        let firstMoodStamp = MoodStamp(mood: .Good, timestamp: NSDate(timeIntervalSinceNow: -10*60))
-        let secondMoodStamp = MoodStamp(mood: .Good)
+        let firstMoodStamp = MoodStamp(mood: .good, timestamp: Date(timeIntervalSinceNow: -10*60))
+        let secondMoodStamp = MoodStamp(mood: .good)
         
         let day = Day(moodStamps: [secondMoodStamp, firstMoodStamp])
         XCTAssertEqual(day.lastMoodStamp, secondMoodStamp, "Day should have sorted moodstamps on init")
         
         let day2 = Day(moodStamps: [firstMoodStamp])
-        day2.addMood(.Bad)
+        day2.addMood(.bad)
         XCTAssertNotEqual(day2.lastMoodStamp, firstMoodStamp, "Day should sort moodstamps on addition")
     }
     
     func testMoodFrequencyCap() {
         let day = Day()
         
-        let addFirst = day.addMood(.Good)
-        let addSecond = day.addMood(.Good)
+        let addFirst = day.addMood(.good)
+        let addSecond = day.addMood(.good)
         
         XCTAssertTrue(addFirst, "Day should add the first mood")
         XCTAssertFalse(addSecond, "Day should not add the second mood")
@@ -107,24 +107,24 @@ class DayTests: XCTestCase {
     func testDefaultMoodAdditionInterval() {
         let day = Day()
         
-        let now = NSDate()
-        day.addMood(.Good)
+        let now = Date()
+        day.addMood(.good)
         let timeIntervalUntilNextAddition = day.timeIntervalUntilNextMoodAddition
         
         XCTAssertEqualWithAccuracy(now.timeIntervalSinceNow, day.lastMoodStamp!.timestamp.timeIntervalSinceNow, accuracy: 1, "Day's last added mood time stamp should be now")
         XCTAssertEqualWithAccuracy(5*60, timeIntervalUntilNextAddition, accuracy: 2, "Time interval until next mood addition should be close to 5 mins")
         
-        XCTAssertFalse(day.addMood(.Good))
+        XCTAssertFalse(day.addMood(.good))
     }
     
     func testPastMoodAdditionInterval() {
-        let pastMood = MoodStamp(mood: .Good, timestamp: NSDate(timeIntervalSinceNow: -4*60))
+        let pastMood = MoodStamp(mood: .good, timestamp: Date(timeIntervalSinceNow: -4*60))
         let day = Day(moodStamps: [pastMood])
         let timeIntervalUntilNextAddition = day.timeIntervalUntilNextMoodAddition
         
         XCTAssertEqualWithAccuracy(1*60, timeIntervalUntilNextAddition, accuracy: 2, "Time interval until next mood addition should be close to 1 min")
         
-        XCTAssertFalse(day.addMood(.Good))
+        XCTAssertFalse(day.addMood(.good))
     }
     
     func testEquality() {
@@ -144,8 +144,8 @@ class DayTests: XCTestCase {
     }
     
     func testDateAndDateComponentsEquality() {
-        let today = NSDate()
-        let todayComponents = NSCalendar.currentCalendar().components([.Day, .Month, .Year], fromDate: today)
+        let today = Date()
+        let todayComponents = Calendar.current().components([.day, .month, .year], from: today)
         
         let date1 = DayDate(date: today)
         let date2 = DayDate(dateComponents: todayComponents)
@@ -157,27 +157,27 @@ class DayTests: XCTestCase {
         
         XCTAssertNotNil(dateBack1 ?? dateBack2, "Dates from DayDates should not be nil")
         if let dateBack1 = dateBack1, let dateBack2 = dateBack2 {
-            XCTAssertTrue(NSCalendar.currentCalendar().isDate(dateBack1, inSameDayAsDate: dateBack2), "Dates should be in the same day")
+            XCTAssertTrue(Calendar.current().isDate(dateBack1, inSameDayAs: dateBack2), "Dates should be in the same day")
         }
     }
     
     func testYesterday() {
-        let today = NSDate()
-        let yesterday = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: -1, toDate: today, options: [])!
-        XCTAssertTrue(NSCalendar.currentCalendar().isDateInYesterday(yesterday), "Wut?")
+        let today = Date()
+        let yesterday = Calendar.current().date(byAdding: .day, value: -1, to: today, options: [])!
+        XCTAssertTrue(Calendar.current().isDateInYesterday(yesterday), "Wut?")
         
         let todayDay = DayDate()
         let yesterdayDay = todayDay.dateWithDaysAfter(-1)
         XCTAssertNotNil(yesterdayDay, "Yesterday should not be nil")
         
         if let yesterdayDay = yesterdayDay {
-            XCTAssertTrue(NSCalendar.currentCalendar().isDateInYesterday(yesterdayDay.date!))
+            XCTAssertTrue(Calendar.current().isDateInYesterday(yesterdayDay.date!))
         }
     }
     
     func testComparison() {
-        let earlierDate = NSCalendar.currentCalendar().dateByAddingUnit(.Month, value: -1, toDate: NSDate(), options: [])!
-        let laterDate = NSCalendar.currentCalendar().dateByAddingUnit(.Month, value: 1, toDate: NSDate(), options: [])!
+        let earlierDate = Calendar.current().date(byAdding: .month, value: -1, to: Date(), options: [])!
+        let laterDate = Calendar.current().date(byAdding: .month, value: 1, to: Date(), options: [])!
         
         let control = DayDate()
         let earlier = DayDate(date: earlierDate)
