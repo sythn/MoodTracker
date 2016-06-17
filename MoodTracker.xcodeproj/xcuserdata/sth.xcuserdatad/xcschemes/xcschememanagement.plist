@@ -19,10 +19,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Notification.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>6C263E941C298ABD00389124</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6CB30E7F1D12E3DE00D48052</key>
 		<dict>
 			<key>primary</key>
 			<true/>

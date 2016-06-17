@@ -39,6 +39,9 @@ public extension UIScrollView {
     
     public var pageCount: Int {
         let width = bounds.width
+        if width == 0 {
+            return 0
+        }
         return Int(ceil(contentSize.width / width))
     }
     

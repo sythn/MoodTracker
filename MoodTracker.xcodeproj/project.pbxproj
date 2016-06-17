@@ -22,11 +22,18 @@
 		6C263EA81C2C1DF400389124 /* InterfaceBuilderSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263EA71C2C1DF400389124 /* InterfaceBuilderSamples.swift */; };
 		6C263EAC1C2C213E00389124 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263EAB1C2C213E00389124 /* DataController.swift */; };
 		6C263EAE1C2C226C00389124 /* DayDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C263EAD1C2C226C00389124 /* DayDate.swift */; };
+		6C370ED01D13DC96005C7F22 /* NotificationControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C370ECE1D13DAD2005C7F22 /* NotificationControllerType.swift */; };
+		6C370ED11D13DE68005C7F22 /* UserNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C370ECC1D13DA88005C7F22 /* UserNotificationController.swift */; };
 		6C3E8A101C3094EE00F915ED /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3E8A0F1C3094EE00F915ED /* Interpolation.swift */; };
 		6C41BC831C2ED36200244226 /* CollectionViewPageFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C41BC821C2ED36200244226 /* CollectionViewPageFlowLayout.swift */; };
 		6C41BC851C2ED3C600244226 /* UIScrollViewAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C41BC841C2ED3C600244226 /* UIScrollViewAdditions.swift */; };
 		6C5EB59B1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5EB59A1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift */; };
 		6C92883E1C3938C70053A373 /* DiskUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C92883D1C3938C70053A373 /* DiskUtilities.swift */; };
+		6CB30E831D12E3DE00D48052 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB30E821D12E3DE00D48052 /* UserNotifications.framework */; };
+		6CB30E851D12E3DE00D48052 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CB30E841D12E3DE00D48052 /* UserNotificationsUI.framework */; };
+		6CB30E881D12E3DE00D48052 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB30E871D12E3DE00D48052 /* NotificationViewController.swift */; };
+		6CB30E8B1D12E3DE00D48052 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB30E891D12E3DE00D48052 /* MainInterface.storyboard */; };
+		6CB30E8F1D12E3DE00D48052 /* Notification.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6CB30E801D12E3DE00D48052 /* Notification.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6CC650DB1C0DFD8100CD7FCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC650DA1C0DFD8100CD7FCC /* AppDelegate.swift */; };
 		6CC650DD1C0DFD8100CD7FCC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC650DC1C0DFD8100CD7FCC /* MainViewController.swift */; };
 		6CC650E01C0DFD8100CD7FCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC650DE1C0DFD8100CD7FCC /* Main.storyboard */; };
@@ -56,6 +63,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6C263E941C298ABD00389124;
 			remoteInfo = Charts;
+		};
+		6CB30E8D1D12E3DE00D48052 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CC650CF1C0DFD8000CD7FCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CB30E7F1D12E3DE00D48052;
+			remoteInfo = Notification;
 		};
 		6CC650EC1C0DFD8100CD7FCC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -88,6 +102,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		6CB30E931D12E3DF00D48052 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6CB30E8F1D12E3DE00D48052 /* Notification.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CC651191C0DFDB000CD7FCC /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,11 +144,19 @@
 		6C263EA71C2C1DF400389124 /* InterfaceBuilderSamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceBuilderSamples.swift; sourceTree = "<group>"; };
 		6C263EAB1C2C213E00389124 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		6C263EAD1C2C226C00389124 /* DayDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayDate.swift; sourceTree = "<group>"; };
+		6C370ECC1D13DA88005C7F22 /* UserNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationController.swift; sourceTree = "<group>"; };
+		6C370ECE1D13DAD2005C7F22 /* NotificationControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationControllerType.swift; sourceTree = "<group>"; };
 		6C3E8A0F1C3094EE00F915ED /* Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		6C41BC821C2ED36200244226 /* CollectionViewPageFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPageFlowLayout.swift; sourceTree = "<group>"; };
 		6C41BC841C2ED3C600244226 /* UIScrollViewAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewAdditions.swift; sourceTree = "<group>"; };
 		6C5EB59A1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScaleCollectionCell.swift; sourceTree = "<group>"; };
 		6C92883D1C3938C70053A373 /* DiskUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiskUtilities.swift; sourceTree = "<group>"; };
+		6CB30E801D12E3DE00D48052 /* Notification.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Notification.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CB30E821D12E3DE00D48052 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		6CB30E841D12E3DE00D48052 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		6CB30E871D12E3DE00D48052 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		6CB30E8A1D12E3DE00D48052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		6CB30E8C1D12E3DE00D48052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CC650D71C0DFD8100CD7FCC /* MoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC650DA1C0DFD8100CD7FCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CC650DC1C0DFD8100CD7FCC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +189,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CB30E7D1D12E3DE00D48052 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CB30E851D12E3DE00D48052 /* UserNotificationsUI.framework in Frameworks */,
+				6CB30E831D12E3DE00D48052 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +270,25 @@
 			path = Charts;
 			sourceTree = "<group>";
 		};
+		6CB30E811D12E3DE00D48052 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CB30E821D12E3DE00D48052 /* UserNotifications.framework */,
+				6CB30E841D12E3DE00D48052 /* UserNotificationsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6CB30E861D12E3DE00D48052 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				6CB30E871D12E3DE00D48052 /* NotificationViewController.swift */,
+				6CB30E891D12E3DE00D48052 /* MainInterface.storyboard */,
+				6CB30E8C1D12E3DE00D48052 /* Info.plist */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		6CC650CE1C0DFD8000CD7FCC = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +297,8 @@
 				6CC651001C0DFDB000CD7FCC /* CoreMood */,
 				6CC6510E1C0DFDB000CD7FCC /* CoreMoodTests */,
 				6C263E961C298ABD00389124 /* Charts */,
+				6CB30E861D12E3DE00D48052 /* Notification */,
+				6CB30E811D12E3DE00D48052 /* Frameworks */,
 				6CC650D81C0DFD8100CD7FCC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -248,6 +311,7 @@
 				6CC650FF1C0DFDB000CD7FCC /* CoreMood.framework */,
 				6CC651081C0DFDB000CD7FCC /* CoreMoodTests.xctest */,
 				6C263E951C298ABD00389124 /* Charts.framework */,
+				6CB30E801D12E3DE00D48052 /* Notification.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -312,6 +376,8 @@
 				6C263EAB1C2C213E00389124 /* DataController.swift */,
 				6C92883D1C3938C70053A373 /* DiskUtilities.swift */,
 				6CCD6B851C313CB50001CFEE /* NotificationController.swift */,
+				6C370ECC1D13DA88005C7F22 /* UserNotificationController.swift */,
+				6C370ECE1D13DAD2005C7F22 /* NotificationControllerType.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -365,6 +431,23 @@
 			productReference = 6C263E951C298ABD00389124 /* Charts.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		6CB30E7F1D12E3DE00D48052 /* Notification */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6CB30E921D12E3DF00D48052 /* Build configuration list for PBXNativeTarget "Notification" */;
+			buildPhases = (
+				6CB30E7C1D12E3DE00D48052 /* Sources */,
+				6CB30E7D1D12E3DE00D48052 /* Frameworks */,
+				6CB30E7E1D12E3DE00D48052 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Notification;
+			productName = Notification;
+			productReference = 6CB30E801D12E3DE00D48052 /* Notification.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		6CC650D61C0DFD8100CD7FCC /* MoodTracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6CC650F41C0DFD8100CD7FCC /* Build configuration list for PBXNativeTarget "MoodTracker" */;
@@ -373,12 +456,14 @@
 				6CC650D41C0DFD8100CD7FCC /* Frameworks */,
 				6CC650D51C0DFD8100CD7FCC /* Resources */,
 				6CC651191C0DFDB000CD7FCC /* Embed Frameworks */,
+				6CB30E931D12E3DF00D48052 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				6CC651131C0DFDB000CD7FCC /* PBXTargetDependency */,
 				6C263E9B1C298ABD00389124 /* PBXTargetDependency */,
+				6CB30E8E1D12E3DE00D48052 /* PBXTargetDependency */,
 			);
 			name = MoodTracker;
 			productName = MoodTracker;
@@ -446,7 +531,7 @@
 		6CC650CF1C0DFD8000CD7FCC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Brokoli;
 				TargetAttributes = {
@@ -455,6 +540,12 @@
 						DevelopmentTeam = G4659FZU4K;
 						DevelopmentTeamName = "Brokoli Yazilim Ltd. Sti.";
 						LastSwiftMigration = 0800;
+					};
+					6CB30E7F1D12E3DE00D48052 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = G4659FZU4K;
+						DevelopmentTeamName = "Brokoli Yazilim Ltd. Sti.";
+						ProvisioningStyle = Automatic;
 					};
 					6CC650D61C0DFD8100CD7FCC = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -504,6 +595,7 @@
 				6CC650FE1C0DFDB000CD7FCC /* CoreMood */,
 				6CC651071C0DFDB000CD7FCC /* CoreMoodTests */,
 				6C263E941C298ABD00389124 /* Charts */,
+				6CB30E7F1D12E3DE00D48052 /* Notification */,
 			);
 		};
 /* End PBXProject section */
@@ -513,6 +605,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CB30E7E1D12E3DE00D48052 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CB30E8B1D12E3DE00D48052 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +661,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6CB30E7C1D12E3DE00D48052 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CB30E881D12E3DE00D48052 /* NotificationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CC650D31C0DFD8100CD7FCC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -572,7 +680,9 @@
 				6CC650DB1C0DFD8100CD7FCC /* AppDelegate.swift in Sources */,
 				6CE4876F1C2D15B3001D9E6D /* DayChartExtensions.swift in Sources */,
 				6C5EB59B1C2E87AA00CD6530 /* TimeScaleCollectionCell.swift in Sources */,
+				6C370ED11D13DE68005C7F22 /* UserNotificationController.swift in Sources */,
 				6C41BC851C2ED3C600244226 /* UIScrollViewAdditions.swift in Sources */,
+				6C370ED01D13DC96005C7F22 /* NotificationControllerType.swift in Sources */,
 				6C3E8A101C3094EE00F915ED /* Interpolation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,6 +733,11 @@
 			target = 6C263E941C298ABD00389124 /* Charts */;
 			targetProxy = 6C263E9A1C298ABD00389124 /* PBXContainerItemProxy */;
 		};
+		6CB30E8E1D12E3DE00D48052 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6CB30E7F1D12E3DE00D48052 /* Notification */;
+			targetProxy = 6CB30E8D1D12E3DE00D48052 /* PBXContainerItemProxy */;
+		};
 		6CC650ED1C0DFD8100CD7FCC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6CC650D61C0DFD8100CD7FCC /* MoodTracker */;
@@ -646,6 +761,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6CB30E891D12E3DE00D48052 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6CB30E8A1D12E3DE00D48052 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		6CC650DE1C0DFD8100CD7FCC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -710,6 +833,42 @@
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6CB30E901D12E3DF00D48052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Notification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tr.com.Brokoli.MoodTrcker.Notification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6CB30E911D12E3DF00D48052 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = Notification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tr.com.Brokoli.MoodTrcker.Notification;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -806,6 +965,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MoodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = tr.com.Brokoli.MoodTrcker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -823,6 +983,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MoodTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = tr.com.Brokoli.MoodTrcker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -939,6 +1100,15 @@
 			buildConfigurations = (
 				6C263E9E1C298ABD00389124 /* Debug */,
 				6C263E9F1C298ABD00389124 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6CB30E921D12E3DF00D48052 /* Build configuration list for PBXNativeTarget "Notification" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6CB30E901D12E3DF00D48052 /* Debug */,
+				6CB30E911D12E3DF00D48052 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

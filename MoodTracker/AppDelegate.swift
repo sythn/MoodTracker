@@ -8,25 +8,33 @@
 
 import UIKit
 import CoreMood
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    var notificationController: NotificationControllerType?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        if #available(iOS 10.0, *) {
+            self.notificationController = UserNotificationController.shared()
+        } else {
+            self.notificationController = NotificationController.shared()
+        }
         
         AppConfiguration.sharedConfiguration.runHandlerOnFirstLaunch {
         }
         
-        NotificationController.sharedController.checkAndAskUserForNotificationPermission()
+        self.notificationController?.checkAndAskUserForNotificationPermission()
         
         return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        NotificationController.sharedController.resetNotificationsWithDayCount(1)
+        self.notificationController?.resetNotifications()
     }
 
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
@@ -34,12 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, completionHandler: () -> Void) {
-        NotificationController.sharedController.handleNotificationWithIdentifier(identifier)
+        self.notificationController?.handleNotification(identifier: identifier)
         completionHandler()
     }
     
     func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
-        NotificationController.sharedController.handleNotificationWithIdentifier(identifier)
+        self.notificationController?.handleNotification(identifier: identifier)
         completionHandler()
     }
     
