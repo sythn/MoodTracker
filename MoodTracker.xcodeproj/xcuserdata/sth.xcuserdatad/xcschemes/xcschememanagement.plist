@@ -24,10 +24,25 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>ViewModel.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>6C263E941C298ABD00389124</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6C7F05F11D15A40300F7FF66</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6C7F05FA1D15A40300F7FF66</key>
 		<dict>
 			<key>primary</key>
 			<true/>

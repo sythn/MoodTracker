@@ -56,7 +56,7 @@ extension UIColor: Interpolatable {
     }
 }
 
-extension Day {
+public extension Day {
     var timeScaleDataPoints: [TimeScaleDataPoint] {
         let moodPerHours = self.statistics.moodValuePerHours
         return (0..<24).map { hour in
@@ -72,7 +72,7 @@ extension Day {
     }
 }
 
-extension TimeScaleView {
+public extension TimeScaleView {
     func setDay(_ day: Day) {
         self.circleColor = day.circleColor
         self.dataPoints = day.timeScaleDataPoints
