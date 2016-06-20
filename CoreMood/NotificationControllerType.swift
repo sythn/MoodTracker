@@ -34,26 +34,26 @@ extension NotificationControllerType {
     }
 }
 
-struct NotificationControllerKeys {
-    struct Legacy {
-        struct Notification {
-            static let category = "NotificationController.MoodNotificationCategory"
+public struct NotificationControllerKeys {
+    public struct Legacy {
+        public struct Notification {
+            public static let category = "NotificationController.MoodNotificationCategory"
             
-            struct Action {
-                static let good = "NotificationController.MoodNotificationActionGood"
-                static let bad = "NotificationController.NotificationActionBad"
-                static let neutral = "NotificationController.NotificationActionNeutral"
+            public struct Action {
+                public static let good = "NotificationController.MoodNotificationActionGood"
+                public static let bad = "NotificationController.NotificationActionBad"
+                public static let neutral = "NotificationController.NotificationActionNeutral"
             }
         }
     }
     
-    struct Notification {
-        static let category = "NotificationController.MoodNotificationCategory.User"
+    public struct Notification {
+        public static let category = "NotificationController.MoodNotificationCategory.User"
         
-        struct Action {
-            static let good = "NotificationController.MoodNotificationActionGood.User"
-            static let bad = "NotificationController.NotificationActionBad.User"
-            static let neutral = "NotificationController.NotificationActionNeutral.User"
+        public struct Action {
+            public static let good = "NotificationController.MoodNotificationActionGood.User"
+            public static let bad = "NotificationController.NotificationActionBad.User"
+            public static let neutral = "NotificationController.NotificationActionNeutral.User"
         }
     }
 }

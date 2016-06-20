@@ -9,6 +9,7 @@
 import UIKit
 import CoreMood
 import Charts
+import ViewModel
 
 class TimeScaleCollectionCell: UICollectionViewCell {
     var timeScaleView = TimeScaleView()

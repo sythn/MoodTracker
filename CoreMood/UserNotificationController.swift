@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CoreMood
+//import CoreMood
 import UserNotifications
 
 @available(iOS 10.0, *)

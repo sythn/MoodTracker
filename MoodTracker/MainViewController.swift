@@ -32,6 +32,10 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MainViewController.doubleTap(_:)))
         tapRecognizer.numberOfTapsRequired = 2
         self.view.addGestureRecognizer(tapRecognizer)
+        
+        NotificationCenter.default().addObserver(forName: NSNotification.Name.UIApplicationDidBecomeActive, object: nil, queue: nil) { (notification) in
+            self.updateChart()
+        }
     }
     
     func didRefreshData() {

@@ -18,6 +18,7 @@ public class NotificationController: NSObject, NotificationControllerType {
         return Singleton.sharedNotificationController
     }
     
+    typealias Keys = NotificationControllerKeys.Legacy.Notification
     private var notificationResetOperationQueue: OperationQueue
     
     override init() {
@@ -40,13 +41,13 @@ public class NotificationController: NSObject, NotificationControllerType {
     public func handleNotification(identifier: String?) {
         var mood: Mood?
         switch identifier {
-        case NotificationControllerKeys.Legacy.Notification.Action.good?:
+        case Keys.Action.good?:
             mood = .good
             
-        case NotificationControllerKeys.Legacy.Notification.Action.bad?:
+        case Keys.Action.bad?:
             mood = .bad
             
-        case NotificationControllerKeys.Legacy.Notification.Action.neutral?:
+        case Keys.Action.neutral?:
             mood = .neutral
             
         default:
@@ -60,22 +61,22 @@ public class NotificationController: NSObject, NotificationControllerType {
     
     private func registerNotificationSettings() {
         let goodAction = UIMutableUserNotificationAction()
-        goodAction.identifier = NotificationControllerKeys.Legacy.Notification.Action.good
+        goodAction.identifier = Keys.Action.good
         goodAction.activationMode = .background
         goodAction.title = "Good"
         
         let badAction = UIMutableUserNotificationAction()
-        badAction.identifier = NotificationControllerKeys.Legacy.Notification.Action.bad
+        badAction.identifier = Keys.Action.bad
         badAction.activationMode = .background
         badAction.title = "Bad"
         
         let neutralAction = UIMutableUserNotificationAction()
-        neutralAction.identifier = NotificationControllerKeys.Legacy.Notification.Action.neutral
+        neutralAction.identifier = Keys.Action.neutral
         neutralAction.activationMode = .background
         neutralAction.title = "Neutral"
         
         let moodNotificationCategory = UIMutableUserNotificationCategory()
-        moodNotificationCategory.identifier = NotificationControllerKeys.Legacy.Notification.category
+        moodNotificationCategory.identifier = Keys.category
         moodNotificationCategory.setActions([goodAction, badAction, neutralAction], for: .default)
         moodNotificationCategory.setActions([goodAction, badAction], for: .minimal)
         

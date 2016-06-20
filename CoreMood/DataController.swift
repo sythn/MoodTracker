@@ -10,7 +10,7 @@ import Foundation
 
 public struct DataControllerUtilities {
     static func daysFromUserDefaults() -> [DayDate: Day]? {
-        let data = Foundation.UserDefaults.standard().object(forKey: "SampleDays") as? Data
+        let data = AppConfiguration.sharedConfiguration.applicationUserDefaults.object(forKey: "SampleDays") as? Data
         if let data = data where data.count > 0,
             let days = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Day] {
                 var dayDict = [DayDate: Day]()
@@ -41,7 +41,7 @@ public class DataController: NSObject {
         
         super.init()
         
-        Foundation.UserDefaults.standard().addObserver(self, forKeyPath: "SampleDays", options: NSKeyValueObservingOptions.new, context: nil)
+        AppConfiguration.sharedConfiguration.applicationUserDefaults.addObserver(self, forKeyPath: "SampleDays", options: NSKeyValueObservingOptions.new, context: nil)
     }
     
     public override func observeValue(forKeyPath keyPath: String?, of object: AnyObject?, change: [NSKeyValueChangeKey : AnyObject]?, context: UnsafeMutablePointer<Void>?) {
@@ -72,6 +72,7 @@ public class DataController: NSObject {
             return day
         }
         let data = NSKeyedArchiver.archivedData(withRootObject: days)
-        Foundation.UserDefaults.standard().set(data, forKey: "SampleDays")
+        AppConfiguration.sharedConfiguration.applicationUserDefaults.set(data, forKey: "SampleDays")
+        AppConfiguration.sharedConfiguration.applicationUserDefaults.synchronize()
     }
 }

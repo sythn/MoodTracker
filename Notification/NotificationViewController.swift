@@ -14,8 +14,12 @@ import Charts
 import ViewModel
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
+    
+    typealias Keys = NotificationControllerKeys.Notification
 
     @IBOutlet var timeScaleView: TimeScaleView!
+    
+    var dataController = DataController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +27,36 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     }
     
     func didReceive(_ notification: UNNotification) {
-        self.timeScaleView.day = DataController().today
+        self.timeScaleView.setDay(self.dataController.today)
+    }
+    
+    func didReceive(_ response: UNNotificationResponse, completionHandler completion: (UNNotificationContentExtensionResponseOption) -> Void) {
+        var mood: Mood?
+        
+        switch response.actionIdentifier {
+        case Keys.Action.good:
+            mood = .good
+            
+        case Keys.Action.bad:
+            mood = .bad
+            
+        case Keys.Action.neutral:
+            mood = .neutral
+            
+        default:
+            mood = nil
+        }
+        
+        if let mood = mood {
+            _ = self.dataController.addMood(mood)
+        }
+        
+        self.timeScaleView.setDay(self.dataController.today)
+        
+        let time = DispatchTime.now() + DispatchTimeInterval.seconds(2)
+        DispatchQueue.main.after(when: time) { 
+            completion(.dismiss)
+        }
     }
 
 }
