@@ -44,7 +44,7 @@ public class AppConfiguration {
     }
     
     struct ApplicationGroups {
-        static let primary = "group.tr.com.Brokoli.MoodTracker.Shared"
+        static let primary = "group.tr.com.brokoli.MoodTracker.Shared"
     }
     
     var applicationUserDefaults: Foundation.UserDefaults {

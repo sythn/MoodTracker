@@ -30,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.notificationController?.checkAndAskUserForNotificationPermission()
         
+        let goodShortcut = UIApplicationShortcutItem(type: "good", localizedTitle: "Feeling good")
+        let badShortcut = UIApplicationShortcutItem(type: "bad", localizedTitle: "Feeling bad")
+        let neutralShortcut = UIApplicationShortcutItem(type: "neutral", localizedTitle: "Feeling neutral")
+        application.shortcutItems = [goodShortcut, badShortcut, neutralShortcut]
+        
         return true
     }
 
@@ -65,6 +70,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
 
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        let mood: Mood?
+        switch shortcutItem.type {
+        case "good":
+            mood = .good
+            
+        case "bad":
+            mood = .bad
+            
+        case "neutral":
+            mood = .neutral
+            
+        default:
+            mood = nil
+        }
+        
+        if let mood = mood {
+            _ = DataController().addMood(mood)
+        }
     }
 
 
