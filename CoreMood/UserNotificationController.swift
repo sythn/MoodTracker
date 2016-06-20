@@ -123,8 +123,9 @@ public class UserNotificationController: NSObject, NotificationControllerType, U
             _ = DataController().addMood(mood)
         }
         
+        center.removeAllDeliveredNotifications()
+        
         completionHandler()
     }
-    
     
 }

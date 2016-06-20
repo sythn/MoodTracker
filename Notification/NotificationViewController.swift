@@ -53,7 +53,9 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         
         self.timeScaleView.setDay(self.dataController.today)
         
-        let time = DispatchTime.now() + DispatchTimeInterval.seconds(2)
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        
+        let time = DispatchTime.now() + DispatchTimeInterval.seconds(1)
         DispatchQueue.main.after(when: time) { 
             completion(.dismiss)
         }
